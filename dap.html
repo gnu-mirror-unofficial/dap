@@ -1,13 +1,16 @@
 <!doctype html public "-//w3c//dtd html 4.0 transitional//en">
 <html>
 <head>
-   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta http-equiv="Content-Type" content="text/html;
+   charset=iso-8859-1">
    <meta name="keywords" content="r">
-   <meta name="GENERATOR" content="Mozilla/4.73 [en] (X11; I; Linux 2.0.34 i586) [Netscape]">
+   <meta name="GENERATOR" content="Mozilla/4.73 [en] (X11; I; Linux
+   2.0.34 i586) [Netscape]">
    <title>Dap - GNU Project - Free Software Foundation (FSF)</title>
 <link REV="made" HREF="mailto:webmasters@www.gnu.org">
 </head>
-<body text="#000000" bgcolor="#FFFFFF" link="#1F00FF" vlink="#9900DD" alink="#FF0000">
+<body text="#000000" bgcolor="#FFFFFF" link="#1F00FF" vlink="#9900DD"
+alink="#FF0000">
 
 <h3>
 The Dap Project for Statistics and Graphics</h3>
@@ -29,52 +32,195 @@ The Dap Project for Statistics and Graphics</h3>
 
 <hr>
 <h4>
-<a NAME="Introduction to Dap"></a>Introduction to Dap&nbsp;&nbsp; <a href="#TOC">[Back
+<a NAME="Introduction to Dap"></a>Introduction to Dap&nbsp;&nbsp; <a
+href="#TOC">[Back
 to Table of Contents]</a></h4>
-Dap is a small statistics and graphics package based on C.&nbsp; It provides
-core methods of data management, analysis, and graphics that are commonly
-used in statistical consulting practice (univariate statistics, correlations
+Dap is a small statistics and graphics package based on C.&nbsp; It
+provides
+core methods of data management, analysis, and graphics that are
+commonly
+used in statistical consulting practice (univariate statistics,
+correlations
 and regression, ANOVA, categorical data analysis, logistic regression,
-and nonparametric analyses).&nbsp; Anyone familiar with the basic syntax
-of C programs can learn to use Dap quickly and easily from the manual and
-the examples contained in it; advanced features of C are not necessary,
-although they are available.&nbsp; (The manual contains a brief introduction
+and nonparametric analyses).&nbsp; Anyone familiar with the basic
+syntax
+of C programs can learn to use Dap quickly and easily from the manual
+and
+the examples contained in it; advanced features of C are not
+necessary,
+although they are available.&nbsp; (The manual contains a brief
+introduction
 to the C syntax needed for Dap.)&nbsp; Because Dap processes files one
-line at a time, rather than reading entire files into memory, it can be,
-and has been, used on data sets that have very many lines and/or very many
+line at a time, rather than reading entire files into memory, it can
+be,
+and has been, used on data sets that have very many lines and/or very
+many
 variables.
-<p>I wrote Dap to use in my statistical consulting practice because the
-utterly famous, industry standard statistics system (you know the one I
-mean) is not available on GNU/Linux and costs a bundle every year under
-a lease arrangement. I was generally happy with that system, except for
-the graphics, which are all but impossible to use,&nbsp; but there were
-a number of clumsy constructs left over from its ancient origins. Thus,
+<p>I wrote Dap to use in my statistical consulting practice because
+the
+utterly famous, industry standard statistics system (you know the one
+I
+mean) is not available on GNU/Linux and costs a bundle every year
+under
+a lease arrangement. I was generally happy with that system, except
+for
+the graphics, which are all but impossible to use,&nbsp; but there
+were
+a number of clumsy constructs left over from its ancient
+origins. Thus,
 I decided to mimic the core of the functionality of that system in the
-context of the C language, which allows much more programming flexibility.
-<p>Dap is a GNU program and is free software distributed under a GNU-style
+context of the C language, which allows much more programming
+flexibility.
+<p>Dap is a GNU program and is free software distributed under a
+GNU-style
 copyleft.
 <h4>
-<a NAME="downloading" HREF="#TOCdownloading"></a>Downloading Dap&nbsp;
-
-<a href="#TOC">[Back to Table of Contents]</a></h4>
-Dap source code can be found as a gzipped tar file in <a href="http://ftp.gnu.org/gnu/dap"><tt>http://ftp.gnu.org/gnu/dap</tt>.</a>
-Dap builds successfully on a variety of GNU/Linux and Unix platforms. Dap
-comes with a manual in info form, which can rendered into dvi form using
+<a NAME="downloading" HREF="#TOCdownloading"></a>Downloading Dap <a
+href="#TOC">[Back
+to Table of Contents]</a></h4>
+Dap source code can be found as a gzipped tar file in <tt><a
+href="http://ftp.gnu.org/gnu/dap">http://ftp.gnu.org/gnu/dap</a></tt>.
+Dap builds successfully on a variety of GNU/Linux and Unix
+platforms. Dap
+comes with a manual in info form, which can rendered into dvi form
+using
 texi2dvi.
-<p><a NAME="Sample output"></a><b>Sample output&nbsp;</b>&nbsp; <a href="#TOC">[Back
+<p>The following instructions tell you how to install Dap.
+<p>GENERALITIES
+<p>This document concerns building and installing Dap from sources.
+<p>Dap will configure and build under a number of common Unix-like
+platforms.The
+directions here are for GNU/Linux; the configure and build for other
+<br>platforms are similar.
+<p>Dap is a GNU program and is free software distributed under a
+GNU-style
+copyleft. See the file COPYING for details.
+<p>GETTING AND UNPACKING THE SOURCES
+<p>The simplest way is to download the most recent `dap-x.y.tar.gz'
+package
+and untar it with the command:
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gunzip -c dap-x.y.tar.gz
+| tar -xvf -
+<p>COMPILATION
+<p>Choose a place to install dap and its documentation.&nbsp; Let's
+call
+this place `DAP_HOME'.&nbsp; Untar the source code.&nbsp; This should
+create
+directories
+<br>`src', `doc', and `examples'.
+<p>If you want the executables, includes, library, and info files
+installed
+in subdirectories `bin', `include', `lib', and `info', respectively,
+of
+<br>`/usr/local', then simply issue the following commands:
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ./configure
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; make install
+<p>(Note the dot `.' before the slash `/' in the first command.)
+Otherwise,
+edit `Makefile.in' to select a different place to install and then
+type
+the above
+<br>commands. Note: when DAP_HOME/src/dap.c compiles, you will get a
+warning:
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; implicit declaration of
+function
+`strcat'
+<p>and when DAP_HOME/src/dap0.c compiles, you will get a warning:
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; implicit declaration of
+function
+`dap_main'
+<p>Ignore these warnings.&nbsp; Now rehash.
+<p>ENVIRONMENT
+<p>The following environment variables are used by Dap:
+<p>DAPEDITOR&nbsp;&nbsp;&nbsp;&nbsp; for editing programs to run under
+Dap
+<br>DAPEDOPTS&nbsp;&nbsp;&nbsp;&nbsp; options for that editor
+<br>DAPPAGER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for viewing tabular output
+from
+Dap
+<br>DAPPAGEOPTS&nbsp;&nbsp; options for that pager
+<br>DAPCOMPILER&nbsp;&nbsp; for compiling programs to run under Dap
+<br>DAPCOMPOPTS&nbsp;&nbsp; options for that compiler
+<br>DAPVIEWER&nbsp;&nbsp;&nbsp;&nbsp; for viewing graphical output
+from
+Dap
+<br>DAPVIEWOPTS&nbsp;&nbsp; options for that viewer
+<br>DAPPP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; path name
+for
+the Dap preprocessor
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(default: /usr/local/bin/dappp)
+<br>INCDIR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; directory for
+compiler
+to find &lt;dap.h>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(default: /usr/local/include)
+<br>LIBDIR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; directory for
+compiler
+to find libdap.a
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(default: /usr/local/lib)
+<p>All but the last three are further documented in the manual.
+<p>If your editor for programs to run under Dap does not run in its
+own
+window, you should uncomment out the call to `waitpid' at the end of
+the
+function `edrun' in `dap.c'.&nbsp; Alternatively, you can comment out
+the
+call to `edrun' entirely and just run the editor on your own.
+<p>READING THE MANUAL
+<p>To read the manual in info, you will need to have `/usr/local/info'
+(or whatever directory you installed the info file in) in your
+`INFOPATH'.
+The
+<br>following command (which you will probably want to put in
+yourshell's
+`rc' file) will do that if your shell is `csh':
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; setenv INFOPATH
+".:/usr/info:/usr/local/info"
+<p>Then issue the command:
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; info dap
+<p>If you prefer dvi or html manuals, they can be made from the file:
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DAP_HOME/doc/dap.texi
+<p>(See the documentation for texi2dvi, dvips, and texinfo.)
+<p>The manual will tell you how to run and use dap.&nbsp; The program
+and
+data files for the examples in the manual are in the directory
+DAP_HOME/doc/examples.
+<p>MACHINE DEPENDENCY
+<p>Dap assumes that you have a machine with 64-bit double precision
+floating
+point numbers conforming to the IEEE floating point standard.&nbsp; If
+that is not the case, then you may have to modify `machdep.c'; good
+luck.
+<p>BUG REPORTS AND COMMENTS
+<p>Send bug reports to &lt;bug-dap@gnu.org>
+<p>If you use dap, please let me know about your experience using it,
+and
+suggestions, by mailing
+<br>to &lt;dap-users@gnu.org>. Thanks.
+<p><a NAME="Sample output"></a><b>Sample output&nbsp;</b>&nbsp; <a
+href="#TOC">[Back
 to Table of Contents]</a>
-<p>The following are samples of tabular output from Dap. They, the programs
-that produced them, and graphical output (not shown here) are all provided
+<p>The following are samples of tabular output from Dap. They, the
+programs
+that produced them, and graphical output (not shown here) are all
+provided
 with the distribution.&nbsp; These examples are from:
-<p>[AMD] Milliken, G.A. and Johnson, D.E. 1984.&nbsp; Analysis of Messy
+<p>[AMD] Milliken, G.A. and Johnson, D.E. 1984.&nbsp; Analysis of
+Messy
 Data.&nbsp; Van Nostrand Reinhold: New York. 473pp.
-<br>[ED] Cochran, W.G. and Cox, G.M. 1957.&nbsp; Experimental Designs.&nbsp;
+<br>[ED] Cochran, W.G. and Cox, G.M. 1957.&nbsp; Experimental
+Designs.&nbsp;
 John Wiley &amp; Sons: New York. 611pp.
-<br>[MS] Bickel, P.J. and Doksum, K.A. 1977. Mathematical Statistics: Basic
+<br>[MS] Bickel, P.J. and Doksum, K.A. 1977. Mathematical Statistics:
+Basic
 Ideas and Selected Topics. Holden-Day: Oakland. 493 pp.
-<br>[LM] Rao, C.R. and Toutenberg, H. 1995. Linear Models: Least Squares
+<br>[LM] Rao, C.R. and Toutenberg, H. 1995. Linear Models: Least
+Squares
 and Alternatives. Springer-Verlag: New York. 352 pp.
-<br>[CDA] Agresti, A.&nbsp; 1990.&nbsp; Categorical Data Analysis.&nbsp;
+<br>[CDA] Agresti, A.&nbsp; 1990.&nbsp; Categorical Data
+Analysis.&nbsp;
 John Wiley &amp; Sons: New York.&nbsp; 558pp.
 <blockquote>
 <li>
@@ -84,13 +230,15 @@ John Wiley &amp; Sons: New York.&nbsp; 558pp.
 &nbsp;<a href="#Crossed, nested ANOVA">Crossed, nested ANOVA</a></li>
 
 <li>
-&nbsp;<a href="#Random model, unbalanced">Random model, unbalanced</a></li>
+&nbsp;<a href="#Random model, unbalanced">Random model,
+unbalanced</a></li>
 
 <li>
 &nbsp;<a href="#Mixed model, balanced">Mixed model, balanced</a></li>
 
 <li>
-&nbsp;<a href="#Mixed model, unbalanced">Mixed model, unbalanced</a></li>
+&nbsp;<a href="#Mixed model, unbalanced">Mixed model,
+unbalanced</a></li>
 
 <li>
 &nbsp;<a href="#Split plot">Split plot</a></li>
@@ -99,17 +247,20 @@ John Wiley &amp; Sons: New York.&nbsp; 558pp.
 &nbsp;<a href="#Latin square">Latin square</a></li>
 
 <li>
-&nbsp;<a href="#Missing treatment combinations">Missing treatment combinations</a></li>
+&nbsp;<a href="#Missing treatment combinations">Missing treatment
+combinations</a></li>
 
 <li>
 &nbsp;<a href="#Linear regression">Linear regression</a></li>
 
 <li>
-&nbsp;<a href="#Linear regression, model building">Linear regression, model
+&nbsp;<a href="#Linear regression, model building">Linear regression,
+model
 building</a></li>
 
 <li>
-&nbsp;<a href="#Ordinal cross-classification">Ordinal cross-classification</a></li>
+&nbsp;<a href="#Ordinal cross-classification">Ordinal
+cross-classification</a></li>
 
 <li>
 &nbsp;<a href="#Stratified 2x2 tables">Stratified 2x2 tables</a></li>
@@ -121,11 +272,12 @@ building</a></li>
 &nbsp;<a href="#Logistic regression">Logistic regression</a></li>
 </blockquote>
 
-<p><br><a NAME="Unbalanced ANOVA"></a><b>Unbalanced ANOVA</b>&nbsp; <a href="#Sample output">[Back
+<p><br><a NAME="Unbalanced ANOVA"></a><b>Unbalanced ANOVA</b>&nbsp; <a
+href="#Sample output">[Back
 to Sample output]</a>
 <p><tt>AMD: pp. 128 - 134</tt>
-<br><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 1. Thu Sep&nbsp; 6 00:19:35 2001</tt>
+<br><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 1. Sun Dec 29 19:55:55 2002</tt>
 <br>&nbsp;
 <p><tt>Response variable: y</tt>
 <p><tt>Treatment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Levels</tt>
@@ -135,8 +287,8 @@ treat1 treat2</tt>
 <br><tt>block&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 block1 block2 block3</tt>
 <br>&nbsp;
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 2. Thu Sep&nbsp; 6 00:19:35 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 2. Sun Dec 29 19:55:55 2002</tt>
 <br>&nbsp;
 <p><tt>Testing Ho: treat block treat*block</tt>
 <br><tt>Number of observations = 16</tt>
@@ -145,8 +297,8 @@ block1 block2 block3</tt>
 <br><tt>R-sq = 0.922761</tt>
 <br><tt>F0 = 23.8937</tt>
 <br><tt>Prob[F > F0] = 0.00003</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 3. Thu Sep&nbsp; 6 00:19:35 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 3. Sun Dec 29 19:55:55 2002</tt>
 <p><tt>Testing interaction</tt>
 <p><tt>Testing Ho: treat*block</tt>
 <br><tt>Number of observations = 16</tt>
@@ -154,8 +306,8 @@ block1 block2 block3</tt>
 <br><tt>Error SS = 20, df = 10, MS = 2</tt>
 <br><tt>F0 = 17.9077</tt>
 <br><tt>Prob[F > F0] = 0.00050</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 4. Thu Sep&nbsp; 6 00:19:35 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 4. Sun Dec 29 19:55:55 2002</tt>
 <p><tt>Testing treatment</tt>
 <p><tt>Testing Ho: treat</tt>
 <br><tt>Number of observations = 16</tt>
@@ -163,37 +315,59 @@ block1 block2 block3</tt>
 <br><tt>Error SS = 20, df = 10, MS = 2</tt>
 <br><tt>F0 = 30.8571</tt>
 <br><tt>Prob[F > F0] = 0.00025</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 5. Thu Sep&nbsp; 6 00:19:35 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 5. Sun Dec 29 19:55:55 2002</tt>
 <p><tt>Testing treatment</tt>
 <p><tt>Least-squares means for: treat</tt>
 <p><tt>LSD&nbsp; method</tt>
 <br><tt>Minimum significant differences are for level 0.05000</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 6. Thu Sep&nbsp; 6 00:19:35 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 6. Sun Dec 29 19:55:55 2002</tt>
 <p><tt>Testing treatment</tt>
-<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-_stat_ for treat</tt>
-<br><tt>=====================================</tt>
-<br><tt>|_type_&nbsp; |_treat&nbsp; |treat1&nbsp; |treat2&nbsp; |</tt>
-<br><tt>|========|========|========|========|</tt>
-<br><tt>|EFFN&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 7.7143|&nbsp; 7.7143|</tt>
-<br><tt>|--------+--------|--------+--------|</tt>
-<br><tt>|LSMDIFF |treat2&nbsp; | -4.0000|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_stat_ for _lsm_ / treat</tt>
+<br><tt>==============================================</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|23&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |27&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 |</tt>
-<br><tt>|--------+--------|--------+--------|</tt>
-<br><tt>|LSMEAN&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 23.0000|
-27.0000|</tt>
-<br><tt>|--------+--------|--------+--------|</tt>
-<br><tt>|MINDIFF |treat2&nbsp; |&nbsp; 1.6045|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br><tt>|--------+--------+--------|--------+--------|</tt>
+<br><tt>|_type_&nbsp; |_LSMEAN_|_treat&nbsp; |treat1&nbsp;
+|treat2&nbsp;
 |</tt>
-<br><tt>|--------+--------|--------+--------|</tt>
-<br><tt>|PROB&nbsp;&nbsp;&nbsp; |treat2&nbsp; |&nbsp; 0.0002|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>-------------------------------------</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 7. Thu Sep&nbsp; 6 00:19:35 2001</tt>
+<br><tt>|========|========|========|========|========|</tt>
+<br><tt>|EFFN&nbsp;&nbsp;&nbsp; |0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; 7.7143|&nbsp;
+7.7143|</tt>
+<br><tt>|--------+--------+--------|--------+--------|</tt>
+<br><tt>|LSMDIFF |23&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |treat1&nbsp;
+|&nbsp;
+0.0000|&nbsp; 4.0000|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|27&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|treat2&nbsp; | -4.0000|&nbsp; 0.0000|</tt>
+<br><tt>|--------+--------+--------|--------+--------|</tt>
+<br><tt>|MINDIFF |23&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |treat1&nbsp;
+|&nbsp;
+1.6044|&nbsp; 1.6044|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|27&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|treat2&nbsp; |&nbsp; 1.6044|&nbsp; 1.6044|</tt>
+<br><tt>|--------+--------+--------|--------+--------|</tt>
+<br><tt>|PROB&nbsp;&nbsp;&nbsp; |23&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|treat1&nbsp;
+|&nbsp; 1.0000|&nbsp; 0.0002|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|27&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|treat2&nbsp; |&nbsp; 0.0002|&nbsp; 1.0000|</tt>
+<br><tt>----------------------------------------------</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 7. Sun Dec 29 19:55:55 2002</tt>
 <p><tt>Testing block</tt>
 <p><tt>Testing Ho: block</tt>
 <br><tt>Number of observations = 16</tt>
@@ -201,51 +375,80 @@ _stat_ for treat</tt>
 <br><tt>Error SS = 20, df = 10, MS = 2</tt>
 <br><tt>F0 = 19.2923</tt>
 <br><tt>Prob[F > F0] = 0.00037</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 8. Thu Sep&nbsp; 6 00:19:35 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 8. Sun Dec 29 19:55:55 2002</tt>
 <p><tt>Testing block</tt>
 <p><tt>Least-squares means for: block</tt>
 <p><tt>Tukey method</tt>
 <p><tt>Minimum significant differences are for level 0.05000</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 9. Thu Sep&nbsp; 6 00:19:37 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 9. Sun Dec 29 19:55:58 2002</tt>
 <p><tt>Testing block</tt>
-<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-_stat_ for block</tt>
-<br><tt>==============================================</tt>
-<br><tt>|_type_&nbsp; |_block&nbsp; |block1&nbsp; |block2&nbsp; |block3&nbsp;
+<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_stat_ for _lsm_ / block</tt>
+<br><tt>=======================================================</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|23&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |24&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|28&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 |</tt>
-<br><tt>|========|========|========|========|========|</tt>
-<br><tt>|EFFN&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 4.8000|&nbsp; 4.8000|&nbsp; 6.0000|</tt>
-<br><tt>|--------+--------|--------+--------+--------|</tt>
-<br><tt>|LSMDIFF |block2&nbsp; | -1.0000|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |block3&nbsp; | -5.0000|
--4.0000|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|--------+--------|--------+--------+--------|</tt>
-<br><tt>|LSMEAN&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 23.0000|
-24.0000| 28.0000|</tt>
-<br><tt>|--------+--------|--------+--------+--------|</tt>
-<br><tt>|MINDIFF |block2&nbsp; |&nbsp; 2.5024|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |block3&nbsp; |&nbsp;
-2.3740|&nbsp; 2.3740|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|--------+--------|--------+--------+--------|</tt>
-<br><tt>|PROB&nbsp;&nbsp;&nbsp; |block2&nbsp; |&nbsp; 0.5381|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |block3&nbsp; |&nbsp;
-0.0005|&nbsp; 0.0025|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>----------------------------------------------</tt>
-<p><a NAME="Crossed, nested ANOVA"></a><b>Crossed, nested ANOVA&nbsp;</b>
-
-<a href="#Sample output">[Back to Sample output]</a>
+<br><tt>|--------+--------+--------|--------+--------+--------|</tt>
+<br><tt>|_type_&nbsp; |_LSMEAN_|_block&nbsp; |block1&nbsp;
+|block2&nbsp;
+|block3&nbsp; |</tt>
+<br><tt>|========|========|========|========|========|========|</tt>
+<br><tt>|EFFN&nbsp;&nbsp;&nbsp; |0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; 4.8000|&nbsp;
+4.8000|&nbsp;
+6.0000|</tt>
+<br><tt>|--------+--------+--------|--------+--------+--------|</tt>
+<br><tt>|LSMDIFF |23&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |block1&nbsp;
+|&nbsp;
+0.0000|&nbsp; 1.0000|&nbsp; 5.0000|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|24&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|block2&nbsp; | -1.0000|&nbsp; 0.0000|&nbsp; 4.0000|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|28&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|block3&nbsp; | -5.0000| -4.0000|&nbsp; 0.0000|</tt>
+<br><tt>|--------+--------+--------|--------+--------+--------|</tt>
+<br><tt>|MINDIFF |23&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |block1&nbsp;
+|&nbsp;
+2.5024|&nbsp; 2.5024|&nbsp; 2.3740|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|24&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|block2&nbsp; |&nbsp; 2.5024|&nbsp; 2.5024|&nbsp; 2.3740|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|28&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|block3&nbsp; |&nbsp; 2.3740|&nbsp; 2.3740|&nbsp; 2.2382|</tt>
+<br><tt>|--------+--------+--------|--------+--------+--------|</tt>
+<br><tt>|PROB&nbsp;&nbsp;&nbsp; |23&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|block1&nbsp;
+|&nbsp; 1.0000|&nbsp; 0.5381|&nbsp; 0.0005|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|24&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|block2&nbsp; |&nbsp; 0.5381|&nbsp; 1.0000|&nbsp; 0.0025|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|28&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|block3&nbsp; |&nbsp; 0.0005|&nbsp; 0.0025|&nbsp; 1.0000|</tt>
+<br><tt>-------------------------------------------------------</tt>
+<p><a NAME="Crossed, nested ANOVA"></a><b>Crossed, nested ANOVA </b><a
+href="#Sample output">[Back
+to Sample output]</a>
 <p><tt>AMD: pp. 249 - 251</tt>
-<br><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 1. Sat Jul 28 08:47:08 2001</tt>
+<br><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 1. Sun Dec 29 19:56:21 2002</tt>
 <br>&nbsp;
 <p><tt>Response variable: y</tt>
 <p><tt>Treatment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Levels</tt>
@@ -257,8 +460,8 @@ _stat_ for block</tt>
 <br><tt>c&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 1 2</tt>
 <br>&nbsp;
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 2. Sat Jul 28 08:47:08 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 2. Sun Dec 29 19:56:21 2002</tt>
 <br>&nbsp;
 <p><tt>Testing Ho: a b a*b b*c a*b*c</tt>
 <br><tt>Number of observations = 16</tt>
@@ -267,8 +470,8 @@ _stat_ for block</tt>
 <br><tt>R-sq = 0.99237</tt>
 <br><tt>F0 = 148.648</tt>
 <br><tt>Prob[F > F0] = 0.00001</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 3. Sat Jul 28 08:47:08 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 3. Sun Dec 29 19:56:21 2002</tt>
 <br>&nbsp;
 <p><tt>Testing Ho: a</tt>
 <br><tt>Residual: a*b*c</tt>
@@ -286,38 +489,58 @@ _stat_ for block</tt>
 <br><tt>Residual df = 2, MS = 0.8125</tt>
 <br><tt>F0 = 48.0769</tt>
 <br><tt>Prob[F > F0] = 0.02018</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 4. Sat Jul 28 08:47:08 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 4. Sun Dec 29 19:56:21 2002</tt>
 <br>&nbsp;
 <p><tt>Least-squares means for: a</tt>
 <p><tt>LSD&nbsp; method</tt>
 <br><tt>Minimum significant differences are for level 0.05000</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 5. Sat Jul 28 08:47:08 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 5. Sun Dec 29 19:56:21 2002</tt>
 <br>&nbsp;
-<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-_stat_ for a</tt>
-<br><tt>===================================</tt>
-<br><tt>|_type_&nbsp; |_a&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_stat_ for _lsm_ / a</tt>
+<br><tt>============================================</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|29&nbsp;&nbsp;&nbsp;&nbsp; |32.125 |</tt>
+<br><tt>|--------+--------+--------|-------+-------|</tt>
+<br><tt>|_type_&nbsp; |_LSMEAN_|_a&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|========|========|=======|=======|</tt>
-<br><tt>|EFFN&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 8.000|&nbsp; 8.000|</tt>
-<br><tt>|--------+--------|-------+-------|</tt>
-<br><tt>|LSMDIFF |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | -3.125|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|--------+--------|-------+-------|</tt>
-<br><tt>|LSMEAN&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 29.000|
-32.125|</tt>
-<br><tt>|--------+--------|-------+-------|</tt>
-<br><tt>|MINDIFF |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; 1.939|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|--------+--------|-------+-------|</tt>
-<br><tt>|PROB&nbsp;&nbsp;&nbsp; |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 0.020|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>-----------------------------------</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 6. Sat Jul 28 08:47:08 2001</tt>
+<br><tt>|========|========|========|=======|=======|</tt>
+<br><tt>|EFFN&nbsp;&nbsp;&nbsp; |0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; 8.000|&nbsp;
+8.000|</tt>
+<br><tt>|--------+--------+--------|-------+-------|</tt>
+<br><tt>|LSMDIFF |29&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 0.000|&nbsp; 3.125|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|-------+-------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |32.125&nbsp;
+|2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+| -3.125|&nbsp; 0.000|</tt>
+<br><tt>|--------+--------+--------|-------+-------|</tt>
+<br><tt>|MINDIFF |29&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 1.939|&nbsp; 1.939|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|-------+-------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |32.125&nbsp;
+|2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 1.939|&nbsp; 1.939|</tt>
+<br><tt>|--------+--------+--------|-------+-------|</tt>
+<br><tt>|PROB&nbsp;&nbsp;&nbsp; |29&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 1.000|&nbsp; 0.020|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|-------+-------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |32.125&nbsp;
+|2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 0.020|&nbsp; 1.000|</tt>
+<br><tt>--------------------------------------------</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 6. Sun Dec 29 19:56:21 2002</tt>
 <br>&nbsp;
 <p><tt>Testing Ho: b</tt>
 <br><tt>Residual: b*c a*b*c</tt>
@@ -340,38 +563,60 @@ _stat_ for a</tt>
 <br><tt>Residual df = 2, MS = 12.0625</tt>
 <br><tt>F0 = 63.8394</tt>
 <br><tt>Prob[F > F0] = 0.01531</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 7. Sat Jul 28 08:47:08 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 7. Sun Dec 29 19:56:21 2002</tt>
 <br>&nbsp;
 <p><tt>Least-squares means for: b</tt>
 <p><tt>LSD&nbsp; method</tt>
 <br><tt>Minimum significant differences are for level 0.05000</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 8. Sat Jul 28 08:47:08 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 8. Sun Dec 29 19:56:21 2002</tt>
 <br>&nbsp;
-<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-_stat_ for b</tt>
-<br><tt>===================================</tt>
-<br><tt>|_type_&nbsp; |_b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_stat_ for _lsm_ / b</tt>
+<br><tt>============================================</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|23.625 |37.5&nbsp;&nbsp; |</tt>
+<br><tt>|--------+--------+--------|-------+-------|</tt>
+<br><tt>|_type_&nbsp; |_LSMEAN_|_b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|========|========|=======|=======|</tt>
-<br><tt>|EFFN&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 8.000|&nbsp; 8.000|</tt>
-<br><tt>|--------+--------|-------+-------|</tt>
-<br><tt>|LSMDIFF |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |-13.875|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|--------+--------|-------+-------|</tt>
-<br><tt>|LSMEAN&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 23.625|
-37.500|</tt>
-<br><tt>|--------+--------|-------+-------|</tt>
-<br><tt>|MINDIFF |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; 7.472|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|--------+--------|-------+-------|</tt>
-<br><tt>|PROB&nbsp;&nbsp;&nbsp; |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 0.015|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>-----------------------------------</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 9. Sat Jul 28 08:47:09 2001</tt>
+<br><tt>|========|========|========|=======|=======|</tt>
+<br><tt>|EFFN&nbsp;&nbsp;&nbsp; |0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; 8.000|&nbsp;
+8.000|</tt>
+<br><tt>|--------+--------+--------|-------+-------|</tt>
+<br><tt>|LSMDIFF |23.625&nbsp; |1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;
+0.000| 13.875|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|-------+-------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|37.5&nbsp;&nbsp;&nbsp;
+|2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |-13.875|&nbsp; 0.000|</tt>
+<br><tt>|--------+--------+--------|-------+-------|</tt>
+<br><tt>|MINDIFF |23.625&nbsp; |1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;
+7.472|&nbsp; 7.472|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|-------+-------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|37.5&nbsp;&nbsp;&nbsp;
+|2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; 7.472|&nbsp;
+7.472|</tt>
+<br><tt>|--------+--------+--------|-------+-------|</tt>
+<br><tt>|PROB&nbsp;&nbsp;&nbsp; |23.625&nbsp;
+|1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 1.000|&nbsp; 0.015|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|-------+-------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|37.5&nbsp;&nbsp;&nbsp;
+|2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; 0.015|&nbsp;
+1.000|</tt>
+<br><tt>--------------------------------------------</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 9. Sun Dec 29 19:56:21 2002</tt>
 <br>&nbsp;
 <p><tt>Testing Ho: a*b</tt>
 <br><tt>Residual: a*b*c</tt>
@@ -389,8 +634,8 @@ _stat_ for b</tt>
 <br><tt>Residual df = 2, MS = 0.8125</tt>
 <br><tt>F0 = 13</tt>
 <br><tt>Prob[F > F0] = 0.06906</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp; 10. Sat Jul 28 08:47:09 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp; 10. Sun Dec 29 19:56:21 2002</tt>
 <br>&nbsp;
 <p><tt>Testing Ho: c*b</tt>
 <br><tt>Residual: a*b*c</tt>
@@ -408,8 +653,8 @@ _stat_ for b</tt>
 <br><tt>Residual df = 2, MS = 0.8125</tt>
 <br><tt>F0 = 14.8462</tt>
 <br><tt>Prob[F > F0] = 0.06311</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp; 11. Sat Jul 28 08:47:09 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp; 11. Sun Dec 29 19:56:21 2002</tt>
 <br>&nbsp;
 <p><tt>Testing Ho: a*c*b</tt>
 <br><tt>Number of observations = 16</tt>
@@ -417,11 +662,12 @@ _stat_ for b</tt>
 <br><tt>Error SS = 6.5, df = 8, MS = 0.8125</tt>
 <br><tt>F0 = 1</tt>
 <br><tt>Prob[F > F0] = 0.40960</tt>
-<p><a NAME="Random model, unbalanced"></a><b>Random model, unbalanced&nbsp;
-</b><a href="#Sample output">[Back to Sample output]</a>
+<p><a NAME="Random model, unbalanced"></a><b>Random model, unbalanced
+</b><a href="#Sample output">[Back
+to Sample output]</a>
 <p><tt>AMD: pp. 265 - 273</tt>
-<br><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 1. Sat Jul 28 08:51:39 2001</tt>
+<br><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 1. Sun Dec 29 19:56:39 2002</tt>
 <br>&nbsp;
 <p><tt>Response variable: efficiency</tt>
 <p><tt>Treatment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Levels</tt>
@@ -433,18 +679,19 @@ _stat_ for b</tt>
 <br><tt>worker&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1
 2 3</tt>
 <br>&nbsp;
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 2. Sat Jul 28 08:51:39 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 2. Sun Dec 29 19:56:39 2002</tt>
 <br>&nbsp;
-<p><tt>Testing Ho: plant plant*site plant*worker plant*site*worker</tt>
+<p><tt>Testing Ho: plant plant*site plant*worker
+plant*site*worker</tt>
 <br><tt>Number of observations = 118</tt>
 <br><tt>H0 SS = 10046.9, df = 35, MS = 287.054</tt>
 <br><tt>Error SS = 408.617, df = 82, MS = 4.98313</tt>
 <br><tt>R-sq = 0.960919</tt>
 <br><tt>F0 = 57.6052</tt>
 <br><tt>Prob[F > F0] = 0.00001</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 3. Sat Jul 28 08:51:39 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 3. Sun Dec 29 19:56:39 2002</tt>
 <br>&nbsp;
 <p><tt>Testing Ho: plant</tt>
 <br><tt>Residual: plant*worker plant*site plant*site*worker</tt>
@@ -475,48 +722,74 @@ _stat_ for b</tt>
 <br><tt>Residual df = 4.76305, MS = 288.305</tt>
 <br><tt>F0 = 6.70528</tt>
 <br><tt>Prob[F > F0] = 0.04184</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 4. Sat Jul 28 08:51:39 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 4. Sun Dec 29 19:56:39 2002</tt>
 <br>&nbsp;
 <p><tt>Least-squares means for: plant</tt>
 <p><tt>Tukey method</tt>
 <p><tt>Minimum significant differences are for level 0.05000</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 5. Sat Jul 28 08:51:41 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 5. Sun Dec 29 19:56:43 2002</tt>
 <br>&nbsp;
-<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-_stat_ for plant</tt>
-<br><tt>===========================================</tt>
-<br><tt>|_type_&nbsp; |_plant&nbsp; |1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|========|========|=======|=======|=======|</tt>
-<br><tt>|EFFN&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-| 37.000| 47.000| 34.000|</tt>
-<br><tt>|--------+--------|-------+-------+-------|</tt>
-<br><tt>|LSMDIFF |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 13.394|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|-------+-------+-------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 1.351|-12.043|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|--------+--------|-------+-------+-------|</tt>
-<br><tt>|LSMEAN&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 97.592|
-84.198| 96.241|</tt>
-<br><tt>|--------+--------|-------+-------+-------|</tt>
-<br><tt>|MINDIFF |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 12.417|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|-------+-------+-------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-| 13.422| 12.720|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|--------+--------|-------+-------+-------|</tt>
-<br><tt>|PROB&nbsp;&nbsp;&nbsp; |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 0.038|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_stat_ for _lsm_ / plant</tt>
+<br><tt>====================================================</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|84.1979|96.2412|97.5919|</tt>
+<br><tt>|--------+--------+--------|-------+-------+-------|</tt>
+<br><tt>|_type_&nbsp; |_LSMEAN_|_plant&nbsp;
+|2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 |</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|-------+-------+-------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 0.941|&nbsp; 0.060|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>-------------------------------------------</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 6. Sat Jul 28 08:51:41 2001</tt>
+<br><tt>|========|========|========|=======|=======|=======|</tt>
+<br><tt>|EFFN&nbsp;&nbsp;&nbsp; |0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 47.000| 34.000|
+37.000|</tt>
+<br><tt>|--------+--------+--------|-------+-------+-------|</tt>
+<br><tt>|LSMDIFF |84.1979 |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;
+0.000| 12.043| 13.394|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|-------+-------+-------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |96.2412
+|3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|-12.043|&nbsp; 0.000|&nbsp; 1.351|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|-------+-------+-------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |97.5919
+|1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|-13.394| -1.351|&nbsp; 0.000|</tt>
+<br><tt>|--------+--------+--------|-------+-------+-------|</tt>
+<br><tt>|MINDIFF |84.1979 |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+11.655|
+12.720| 12.417|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|-------+-------+-------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |96.2412
+|3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+| 12.720| 13.703| 13.422|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|-------+-------+-------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |97.5919
+|1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+| 12.417| 13.422| 13.135|</tt>
+<br><tt>|--------+--------+--------|-------+-------+-------|</tt>
+<br><tt>|PROB&nbsp;&nbsp;&nbsp; |84.1979
+|2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 1.000|&nbsp; 0.060|&nbsp; 0.038|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|-------+-------+-------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |96.2412
+|3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 0.060|&nbsp; 1.000|&nbsp; 0.941|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|-------+-------+-------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |97.5919
+|1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 0.038|&nbsp; 0.941|&nbsp; 1.000|</tt>
+<br><tt>----------------------------------------------------</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 6. Sun Dec 29 19:56:43 2002</tt>
 <br>&nbsp;
 <p><tt>Testing Ho: site*worker*plant</tt>
 <br><tt>Number of observations = 118</tt>
@@ -524,8 +797,8 @@ _stat_ for plant</tt>
 <br><tt>Error SS = 408.617, df = 82, MS = 4.98313</tt>
 <br><tt>F0 = 21.4199</tt>
 <br><tt>Prob[F > F0] = 0.00001</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 7. Sat Jul 28 08:51:41 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 7. Sun Dec 29 19:56:43 2002</tt>
 <br>&nbsp;
 <p><tt>Testing Ho: site*plant</tt>
 <br><tt>Residual: site*worker*plant</tt>
@@ -544,8 +817,8 @@ _stat_ for plant</tt>
 <br><tt>Residual df = 18.1096, MS = 100.517</tt>
 <br><tt>F0 = 0.674628</tt>
 <br><tt>Prob[F > F0] = 0.72173</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 8. Sat Jul 28 08:51:41 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 8. Sun Dec 29 19:56:43 2002</tt>
 <br>&nbsp;
 <p><tt>Testing Ho: worker*plant</tt>
 <br><tt>Residual: site*worker*plant</tt>
@@ -564,22 +837,23 @@ _stat_ for plant</tt>
 <br><tt>Residual df = 18.3524, MS = 89.157</tt>
 <br><tt>F0 = 3.64461</tt>
 <br><tt>Prob[F > F0] = 0.01480</tt>
-<p><a NAME="Mixed model, balanced"></a><b>Mixed model, balanced&nbsp;</b>
-
-<a href="#Sample output">[Back to Sample output]</a>
+<p><a NAME="Mixed model, balanced"></a><b>Mixed model, balanced </b><a
+href="#Sample output">[Back
+to Sample output]</a>
 <p>AMD:&nbsp; pp. 285-289
-<br><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 1. Sat Jul 28 08:54:45 2001</tt>
+<br><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 1. Sun Dec 29 19:56:56 2002</tt>
 <br>&nbsp;
 <p><tt>Response variable: productivity</tt>
 <p><tt>Treatment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Levels</tt>
 <br><tt>--------&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ------</tt>
-<br><tt>machine&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 2 3</tt>
+<br><tt>machine&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 2
+3</tt>
 <br><tt>person&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1
 2 3 4 5 6</tt>
 <br>&nbsp;
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 2. Sat Jul 28 08:54:45 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 2. Sun Dec 29 19:56:56 2002</tt>
 <br>&nbsp;
 <p><tt>Testing Ho: machine person machine*person</tt>
 <br><tt>Number of observations = 54</tt>
@@ -588,8 +862,8 @@ _stat_ for plant</tt>
 <br><tt>R-sq = 0.990371</tt>
 <br><tt>F0 = 217.81</tt>
 <br><tt>Prob[F > F0] = 0.00001</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 3. Sat Jul 28 08:54:45 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 3. Sun Dec 29 19:56:56 2002</tt>
 <br>&nbsp;
 <p><tt>Testing Ho: machine*person</tt>
 <br><tt>Number of observations = 54</tt>
@@ -597,8 +871,8 @@ _stat_ for plant</tt>
 <br><tt>Error SS = 33.2867, df = 36, MS = 0.92463</tt>
 <br><tt>F0 = 46.1298</tt>
 <br><tt>Prob[F > F0] = 0.00001</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 4. Sat Jul 28 08:54:45 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 4. Sun Dec 29 19:56:56 2002</tt>
 <br>&nbsp;
 <p><tt>Testing Ho: person</tt>
 <br><tt>Residual: machine*person</tt>
@@ -616,101 +890,139 @@ _stat_ for plant</tt>
 <br><tt>Residual df = 10, MS = 42.653</tt>
 <br><tt>F0 = 5.82325</tt>
 <br><tt>Prob[F > F0] = 0.00895</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 5. Sat Jul 28 08:54:45 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 5. Sun Dec 29 19:56:56 2002</tt>
 <br>&nbsp;
 <p><tt>Least-squares means for: person</tt>
 <p><tt>Tukey method</tt>
 <p><tt>Minimum significant differences are for level 0.05000</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 6. Sat Jul 28 08:54:49 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 6. Sun Dec 29 19:57:14 2002</tt>
 <br>&nbsp;
-<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-_stat_ for person</tt>
-<br><tt>=========================================================================</tt>
-<br><tt>|_type_&nbsp; |_person |1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|========|========|========|========|========|========|========|========|</tt>
-<br><tt>|EFFN&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 9.0000|&nbsp; 9.0000|&nbsp; 9.0000|&nbsp; 9.0000|&nbsp; 9.0000|&nbsp;
-9.0000|</tt>
-<br><tt>|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
-<br><tt>|LSMDIFF |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; 2.9222|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------+--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-| -5.2111| -8.1333|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------+--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 1.3333| -1.5889|&nbsp; 6.5444|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------+--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-| -1.8111| -4.7333|&nbsp; 3.4000| -3.1444|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------+--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-| 10.3333|&nbsp; 7.4111| 15.5444|&nbsp; 9.0000| 12.1444|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
-<br><tt>|LSMEAN&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 60.9111|
-57.9889| 66.1222| 59.5778| 62.7222| 50.5778|</tt>
-<br><tt>|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
-<br><tt>|MINDIFF |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 10.6933|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------+--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-| 10.6933| 10.6933|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------+--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-| 10.6933| 10.6933| 10.6933|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------+--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-| 10.6933| 10.6933| 10.6933| 10.6933|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------+--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-| 10.6933| 10.6933| 10.6933| 10.6933| 10.6933|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
-<br><tt>|PROB&nbsp;&nbsp;&nbsp; |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 0.9240|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------+--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 0.5644|&nbsp; 0.1728|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------+--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 0.9974|&nbsp; 0.9942|&nbsp; 0.3469|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------+--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 0.9896|&nbsp; 0.6512|&nbsp; 0.8690|&nbsp; 0.9004|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------+--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 0.0597|&nbsp; 0.2400|&nbsp; 0.0049|&nbsp; 0.1146|&nbsp; 0.0244|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>-------------------------------------------------------------------------</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 7. Sat Jul 28 08:54:50 2001</tt>
+<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_stat_ for _lsm_ / person</tt>
+<br><tt>==================================================================================</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|50.5778 |57.9889 |59.5778 |60.9111 |62.7222 |66.1222 |</tt>
+<br><tt>|--------+--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|_type_&nbsp; |_LSMEAN_|_person
+|6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
+<br><tt>|========|========|========|========|========|========|========|========|========|</tt>
+<br><tt>|EFFN&nbsp;&nbsp;&nbsp; |0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; 9.0000|&nbsp;
+9.0000|&nbsp;
+9.0000|&nbsp; 9.0000|&nbsp; 9.0000|&nbsp; 9.0000|</tt>
+<br><tt>|--------+--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|LSMDIFF |50.5778 |6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;
+0.0000|&nbsp; 7.4111|&nbsp; 9.0000| 10.3333| 12.1444| 15.5444|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |57.9889
+|2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+| -7.4111|&nbsp; 0.0000|&nbsp; 1.5889|&nbsp; 2.9222|&nbsp;
+4.7333|&nbsp;
+8.1333|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |59.5778
+|4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+| -9.0000| -1.5889|&nbsp; 0.0000|&nbsp; 1.3333|&nbsp; 3.1444|&nbsp;
+6.5444|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |60.9111
+|1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|-10.3333| -2.9222| -1.3333|&nbsp; 0.0000|&nbsp; 1.8111|&nbsp;
+5.2111|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |62.7222
+|5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|-12.1444| -4.7333| -3.1444| -1.8111|&nbsp; 0.0000|&nbsp; 3.4000|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |66.1222
+|3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|-15.5444| -8.1333| -6.5444| -5.2111| -3.4000|&nbsp; 0.0000|</tt>
+<br><tt>|--------+--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|MINDIFF |50.5778 |6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+10.6933|
+10.6933| 10.6933| 10.6933| 10.6933| 10.6933|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |57.9889
+|2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+| 10.6933| 10.6933| 10.6933| 10.6933| 10.6933| 10.6933|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |59.5778
+|4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+| 10.6933| 10.6933| 10.6933| 10.6933| 10.6933| 10.6933|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |60.9111
+|1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+| 10.6933| 10.6933| 10.6933| 10.6933| 10.6933| 10.6933|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |62.7222
+|5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+| 10.6933| 10.6933| 10.6933| 10.6933| 10.6933| 10.6933|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |66.1222
+|3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+| 10.6933| 10.6933| 10.6933| 10.6933| 10.6933| 10.6933|</tt>
+<br><tt>|--------+--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|PROB&nbsp;&nbsp;&nbsp; |50.5778
+|6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 1.0000|&nbsp; 0.2400|&nbsp; 0.1146|&nbsp; 0.0597|&nbsp;
+0.0244|&nbsp;
+0.0049|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |57.9889
+|2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 0.2400|&nbsp; 1.0000|&nbsp; 0.9942|&nbsp; 0.9240|&nbsp;
+0.6512|&nbsp;
+0.1728|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |59.5778
+|4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 0.1146|&nbsp; 0.9942|&nbsp; 1.0000|&nbsp; 0.9974|&nbsp;
+0.9004|&nbsp;
+0.3469|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |60.9111
+|1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 0.0597|&nbsp; 0.9240|&nbsp; 0.9974|&nbsp; 1.0000|&nbsp;
+0.9896|&nbsp;
+0.5644|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |62.7222
+|5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 0.0244|&nbsp; 0.6512|&nbsp; 0.9004|&nbsp; 0.9896|&nbsp;
+1.0000|&nbsp;
+0.8690|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |66.1222
+|3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 0.0049|&nbsp; 0.1728|&nbsp; 0.3469|&nbsp; 0.5644|&nbsp;
+0.8690|&nbsp;
+1.0000|</tt>
+<br><tt>----------------------------------------------------------------------------------</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 7. Sun Dec 29 19:57:14 2002</tt>
 <br>&nbsp;
 <p><tt>Testing Ho: machine</tt>
 <br><tt>Residual: machine*person</tt>
@@ -728,64 +1040,90 @@ _stat_ for person</tt>
 <br><tt>Residual df = 10, MS = 42.653</tt>
 <br><tt>F0 = 20.5761</tt>
 <br><tt>Prob[F > F0] = 0.00029</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 8. Sat Jul 28 08:54:50 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 8. Sun Dec 29 19:57:14 2002</tt>
 <br>&nbsp;
 <p><tt>Least-squares means for: machine</tt>
 <p><tt>Tukey method</tt>
 <p><tt>Minimum significant differences are for level 0.05000</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 9. Sat Jul 28 08:54:50 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 9. Sun Dec 29 19:57:16 2002</tt>
 <br>&nbsp;
-<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-_stat_ for machine</tt>
-<br><tt>==============================================</tt>
-<br><tt>|_type_&nbsp; |_machine|1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|========|========|========|========|========|</tt>
-<br><tt>|EFFN&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-| 18.0000| 18.0000| 18.0000|</tt>
-<br><tt>|--------+--------|--------+--------+--------|</tt>
-<br><tt>|LSMDIFF |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | -7.9667|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|-13.9167| -5.9500|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|--------+--------|--------+--------+--------|</tt>
-<br><tt>|LSMEAN&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 52.3556|
-60.3222| 66.2722|</tt>
-<br><tt>|--------+--------|--------+--------+--------|</tt>
-<br><tt>|MINDIFF |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; 5.9677|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 5.9677|&nbsp; 5.9677|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_stat_ for _lsm_ / machine</tt>
+<br><tt>=======================================================</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|52.3556 |60.3222 |66.2722 |</tt>
+<br><tt>|--------+--------+--------|--------+--------+--------|</tt>
+<br><tt>|_type_&nbsp;
+|_LSMEAN_|_machine|1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 |</tt>
-<br><tt>|--------+--------|--------+--------+--------|</tt>
-<br><tt>|PROB&nbsp;&nbsp;&nbsp; |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 0.0111|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 0.0002|&nbsp; 0.0507|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>----------------------------------------------</tt>
-<p><a NAME="Mixed model, unbalanced"></a><b>Mixed model, unbalanced</b>&nbsp;
-
-<a href="#Sample output">[Back to Sample output]</a>
+<br><tt>|========|========|========|========|========|========|</tt>
+<br><tt>|EFFN&nbsp;&nbsp;&nbsp; |0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 18.0000| 18.0000|
+18.0000|</tt>
+<br><tt>|--------+--------+--------|--------+--------+--------|</tt>
+<br><tt>|LSMDIFF |52.3556 |1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;
+0.0000|&nbsp; 7.9667| 13.9167|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |60.3222
+|2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+| -7.9667|&nbsp; 0.0000|&nbsp; 5.9500|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |66.2722
+|3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|-13.9167| -5.9500|&nbsp; 0.0000|</tt>
+<br><tt>|--------+--------+--------|--------+--------+--------|</tt>
+<br><tt>|MINDIFF |52.3556 |1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;
+5.9677|&nbsp; 5.9677|&nbsp; 5.9677|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |60.3222
+|2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 5.9677|&nbsp; 5.9677|&nbsp; 5.9677|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |66.2722
+|3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 5.9677|&nbsp; 5.9677|&nbsp; 5.9677|</tt>
+<br><tt>|--------+--------+--------|--------+--------+--------|</tt>
+<br><tt>|PROB&nbsp;&nbsp;&nbsp; |52.3556
+|1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 1.0000|&nbsp; 0.0111|&nbsp; 0.0002|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |60.3222
+|2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 0.0111|&nbsp; 1.0000|&nbsp; 0.0507|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |66.2722
+|3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 0.0002|&nbsp; 0.0507|&nbsp; 1.0000|</tt>
+<br><tt>-------------------------------------------------------</tt>
+<p><a NAME="Mixed model, unbalanced"></a><b>Mixed model,
+unbalanced</b><a href="#Sample output">[Back
+to Sample output]</a>
 <p>AMD:&nbsp; pp. 290 - 295
-<br>---------------------------------
-<br><tt>Dap&nbsp;&nbsp; 1. Sat Jul 28 19:58:49 2001</tt>
+<br><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 1. Sun Dec 29 19:58:15 2002</tt>
 <br>&nbsp;
 <p><tt>Response variable: productivity</tt>
 <p><tt>Treatment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Levels</tt>
 <br><tt>--------&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ------</tt>
-<br><tt>machine&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 2 3</tt>
+<br><tt>machine&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 2
+3</tt>
 <br><tt>person&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1
 2 3 4 5 6</tt>
 <br>&nbsp;
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 2. Sat Jul 28 19:58:49 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 2. Sun Dec 29 19:58:15 2002</tt>
 <br>&nbsp;
 <p><tt>Testing Ho: machine person machine*person</tt>
 <br><tt>Number of observations = 44</tt>
@@ -794,8 +1132,8 @@ _stat_ for machine</tt>
 <br><tt>R-sq = 0.992645</tt>
 <br><tt>F0 = 206.406</tt>
 <br><tt>Prob[F > F0] = 0.00001</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 3. Sat Jul 28 19:58:49 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 3. Sun Dec 29 19:58:15 2002</tt>
 <br>&nbsp;
 <p><tt>Testing Ho: machine*person</tt>
 <br><tt>Number of observations = 44</tt>
@@ -803,8 +1141,8 @@ _stat_ for machine</tt>
 <br><tt>Error SS = 22.6867, df = 26, MS = 0.872564</tt>
 <br><tt>F0 = 46.3364</tt>
 <br><tt>Prob[F > F0] = 0.00001</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 4. Sat Jul 28 19:58:49 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 4. Sun Dec 29 19:58:15 2002</tt>
 <br>&nbsp;
 <p><tt>Testing Ho: machine</tt>
 <br><tt>Residual: machine*person</tt>
@@ -823,50 +1161,75 @@ _stat_ for machine</tt>
 <br><tt>Residual df = 10.0362, MS = 37.3704</tt>
 <br><tt>F0 = 16.5666</tt>
 <br><tt>Prob[F > F0] = 0.00067</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 5. Sat Jul 28 19:58:49 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 5. Sun Dec 29 19:58:15 2002</tt>
 <br>&nbsp;
 <p><tt>Least-squares means for: machine</tt>
 <p><tt>Tukey method</tt>
 <p><tt>Minimum significant differences are for level 0.05000</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 6. Sat Jul 28 19:58:50 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 6. Sun Dec 29 19:58:18 2002</tt>
 <br>&nbsp;
-<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-_stat_ for machine</tt>
-<br><tt>==============================================</tt>
-<br><tt>|_type_&nbsp; |_machine|1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|========|========|========|========|========|</tt>
-<br><tt>|EFFN&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-| 11.4088| 12.8061| 18.0000|</tt>
-<br><tt>|--------+--------|--------+--------+--------|</tt>
-<br><tt>|LSMDIFF |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | -7.7084|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|-13.9586| -6.2502|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|--------+--------|--------+--------+--------|</tt>
-<br><tt>|LSMEAN&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 52.3136|
-60.0220| 66.2722|</tt>
-<br><tt>|--------+--------|--------+--------+--------|</tt>
-<br><tt>|MINDIFF |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; 6.8186|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 6.3382|&nbsp; 6.1229|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_stat_ for _lsm_ / machine</tt>
+<br><tt>=======================================================</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|52.3136 |60.022&nbsp; |66.2722 |</tt>
+<br><tt>|--------+--------+--------|--------+--------+--------|</tt>
+<br><tt>|_type_&nbsp;
+|_LSMEAN_|_machine|1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 |</tt>
-<br><tt>|--------+--------|--------+--------+--------|</tt>
-<br><tt>|PROB&nbsp;&nbsp;&nbsp; |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 0.0278|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 0.0003|&nbsp; 0.0455|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>----------------------------------------------</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 7. Sat Jul 28 19:58:50 2001</tt>
+<br><tt>|========|========|========|========|========|========|</tt>
+<br><tt>|EFFN&nbsp;&nbsp;&nbsp; |0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 11.4088| 12.8061|
+18.0000|</tt>
+<br><tt>|--------+--------+--------|--------+--------+--------|</tt>
+<br><tt>|LSMDIFF |52.3136 |1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;
+0.0000|&nbsp; 7.7084| 13.9586|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |60.022&nbsp;
+|2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+| -7.7084|&nbsp; 0.0000|&nbsp; 6.2502|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |66.2722
+|3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|-13.9586| -6.2502|&nbsp; 0.0000|</tt>
+<br><tt>|--------+--------+--------|--------+--------+--------|</tt>
+<br><tt>|MINDIFF |52.3136 |1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;
+7.0126|&nbsp; 6.8186|&nbsp; 6.3382|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |60.022&nbsp;
+|2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 6.8186|&nbsp; 6.6189|&nbsp; 6.1229|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |66.2722
+|3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 6.3382|&nbsp; 6.1229|&nbsp; 5.5829|</tt>
+<br><tt>|--------+--------+--------|--------+--------+--------|</tt>
+<br><tt>|PROB&nbsp;&nbsp;&nbsp; |52.3136
+|1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 1.0000|&nbsp; 0.0278|&nbsp; 0.0003|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |60.022&nbsp;
+|2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 0.0278|&nbsp; 1.0000|&nbsp; 0.0455|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |66.2722
+|3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 0.0003|&nbsp; 0.0455|&nbsp; 1.0000|</tt>
+<br><tt>-------------------------------------------------------</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 7. Sun Dec 29 19:58:18 2002</tt>
 <br>&nbsp;
 <p><tt>Testing Ho: person</tt>
 <br><tt>Residual: machine*person</tt>
@@ -885,104 +1248,143 @@ _stat_ for machine</tt>
 <br><tt>Residual df = 10.0145, MS = 39.1437</tt>
 <br><tt>F0 = 5.16586</tt>
 <br><tt>Prob[F > F0] = 0.01334</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 8. Sat Jul 28 19:58:50 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 8. Sun Dec 29 19:58:18 2002</tt>
 <br>&nbsp;
 <p><tt>Least-squares means for: person</tt>
 <p><tt>Tukey method</tt>
 <p><tt>Minimum significant differences are for level 0.05000</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 9. Sat Jul 28 19:58:57 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 9. Sun Dec 29 19:58:35 2002</tt>
 <br>&nbsp;
-<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-_stat_ for person</tt>
-<br><tt>=========================================================================</tt>
-<br><tt>|_type_&nbsp; |_person |1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|========|========|========|========|========|========|========|========|</tt>
-<br><tt>|EFFN&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 4.8331|&nbsp; 7.8572|&nbsp; 5.4729|&nbsp; 7.6197|&nbsp; 8.0095|&nbsp;
-9.0000|</tt>
-<br><tt>|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
-<br><tt>|LSMDIFF |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; 3.1126|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------+--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-| -4.8776| -7.9902|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------+--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 1.0011| -2.1115|&nbsp; 5.8787|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------+--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-| -1.6177| -4.7303|&nbsp; 3.2599| -2.6188|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------+--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-| 10.2221|&nbsp; 7.1095| 15.0997|&nbsp; 9.2210| 11.8398|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
-<br><tt>|LSMEAN&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 60.7999|
-57.6873| 65.6775| 59.7988| 62.4176| 50.5778|</tt>
-<br><tt>|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
-<br><tt>|MINDIFF |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 12.5588|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------+--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-| 13.5607| 12.0957|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------+--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-| 12.6331| 11.0458| 12.1729|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------+--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-| 12.5132| 10.9085| 12.0484| 10.9940|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------+--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-| 12.2514| 10.6071| 11.7762| 10.6950| 10.5531|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
-<br><tt>|PROB&nbsp;&nbsp;&nbsp; |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 0.9479|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------+--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 0.8045|&nbsp; 0.2794|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------+--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 0.9997|&nbsp; 0.9823|&nbsp; 0.5731|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------+--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 0.9970|&nbsp; 0.6689|&nbsp; 0.9268|&nbsp; 0.9555|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------+--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 0.1190|&nbsp; 0.2671|&nbsp; 0.0114|&nbsp; 0.1031|&nbsp; 0.0263|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>-------------------------------------------------------------------------</tt>
-<p><a NAME="Split plot"></a><b>Split plot</b>&nbsp;&nbsp; <a href="#Sample output">[Back
+<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_stat_ for _lsm_ / person</tt>
+<br><tt>==================================================================================</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|50.5778 |57.6873 |59.7988 |60.7999 |62.4176 |65.6775 |</tt>
+<br><tt>|--------+--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|_type_&nbsp; |_LSMEAN_|_person
+|6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
+<br><tt>|========|========|========|========|========|========|========|========|========|</tt>
+<br><tt>|EFFN&nbsp;&nbsp;&nbsp; |0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; 9.0000|&nbsp;
+7.8572|&nbsp;
+7.6197|&nbsp; 4.8331|&nbsp; 8.0095|&nbsp; 5.4729|</tt>
+<br><tt>|--------+--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|LSMDIFF |50.5778 |6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;
+0.0000|&nbsp; 7.1095|&nbsp; 9.2210| 10.2221| 11.8398| 15.0997|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |57.6873
+|2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+| -7.1095|&nbsp; 0.0000|&nbsp; 2.1115|&nbsp; 3.1126|&nbsp;
+4.7303|&nbsp;
+7.9902|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |59.7988
+|4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+| -9.2210| -2.1115|&nbsp; 0.0000|&nbsp; 1.0011|&nbsp; 2.6188|&nbsp;
+5.8787|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |60.7999
+|1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|-10.2221| -3.1126| -1.0011|&nbsp; 0.0000|&nbsp; 1.6177|&nbsp;
+4.8776|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |62.4176
+|5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|-11.8398| -4.7303| -2.6188| -1.6177|&nbsp; 0.0000|&nbsp; 3.2599|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |65.6775
+|3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|-15.0997| -7.9902| -5.8787| -4.8776| -3.2599|&nbsp; 0.0000|</tt>
+<br><tt>|--------+--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|MINDIFF |50.5778 |6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+10.2412|
+10.6071| 10.6950| 12.2514| 10.5531| 11.7762|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |57.6873
+|2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+| 10.6071| 10.9608| 11.0458| 12.5588| 10.9085| 12.0957|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |59.7988
+|4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+| 10.6950| 11.0458| 11.1302| 12.6331| 10.9940| 12.1729|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |60.7999
+|1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+| 12.2514| 12.5588| 12.6331| 13.9753| 12.5132| 13.5607|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |62.4176
+|5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+| 10.5531| 10.9085| 10.9940| 12.5132| 10.8560| 12.0484|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |65.6775
+|3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+| 11.7762| 12.0957| 12.1729| 13.5607| 12.0484| 13.1330|</tt>
+<br><tt>|--------+--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|PROB&nbsp;&nbsp;&nbsp; |50.5778
+|6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 1.0000|&nbsp; 0.2671|&nbsp; 0.1031|&nbsp; 0.1190|&nbsp;
+0.0263|&nbsp;
+0.0114|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |57.6873
+|2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 0.2671|&nbsp; 1.0000|&nbsp; 0.9823|&nbsp; 0.9479|&nbsp;
+0.6689|&nbsp;
+0.2794|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |59.7988
+|4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 0.1031|&nbsp; 0.9823|&nbsp; 1.0000|&nbsp; 0.9997|&nbsp;
+0.9555|&nbsp;
+0.5731|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |60.7999
+|1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 0.1190|&nbsp; 0.9479|&nbsp; 0.9997|&nbsp; 1.0000|&nbsp;
+0.9970|&nbsp;
+0.8045|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |62.4176
+|5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 0.0263|&nbsp; 0.6689|&nbsp; 0.9555|&nbsp; 0.9970|&nbsp;
+1.0000|&nbsp;
+0.9268|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |65.6775
+|3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 0.0114|&nbsp; 0.2794|&nbsp; 0.5731|&nbsp; 0.8045|&nbsp;
+0.9268|&nbsp;
+1.0000|</tt>
+<br><tt>----------------------------------------------------------------------------------</tt>
+<p><a NAME="Split plot"></a><b>Split plot</b>&nbsp;&nbsp; <a
+href="#Sample output">[Back
 to Sample output]</a>
 <p>AMD:&nbsp; pp. 297 - 308
-<br><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 1. Sat Jul 28 20:00:10 2001</tt>
+<br><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 1. Sun Dec 29 19:58:49 2002</tt>
 <p><tt>Whole plot (block, fertilizer) analysis</tt>
 <p><tt>Response variable: yield</tt>
 <p><tt>Treatment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Levels</tt>
@@ -990,13 +1392,15 @@ to Sample output]</a>
 <br><tt>fertilizer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 2 3 4</tt>
 <br><tt>block&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 1 2</tt>
-<br><tt>variety&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 2</tt>
+<br><tt>variety&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1
+2</tt>
 <br>&nbsp;
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 2. Sat Jul 28 20:00:10 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 2. Sun Dec 29 19:58:49 2002</tt>
 <p><tt>Whole plot (block, fertilizer) analysis</tt>
 <p><tt>Testing Ho: fertilizer block</tt>
-<br><tt>Residual: fertilizer*block variety fertilizer*variety block*variety
+<br><tt>Residual: fertilizer*block variety fertilizer*variety
+block*variety
 fertilizer*block*variety</tt>
 <br><tt>Number of observations = 16</tt>
 <br><tt>H0 SS = 171.293, df = 4, MS = 42.8231</tt>
@@ -1004,8 +1408,8 @@ fertilizer*block*variety</tt>
 <br><tt>R-sq = 0.899409</tt>
 <br><tt>F0 = 24.5885</tt>
 <br><tt>Prob[F > F0] = 0.00002</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 3. Sat Jul 28 20:00:10 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 3. Sun Dec 29 19:58:49 2002</tt>
 <p><tt>Whole plot (block, fertilizer) analysis</tt>
 <p><tt>Testing Ho: fertilizer</tt>
 <br><tt>Residual: fertilizer*block</tt>
@@ -1023,66 +1427,111 @@ fertilizer*block*variety</tt>
 <br><tt>Residual df = 3, MS = 2.30917</tt>
 <br><tt>F0 = 5.80152</tt>
 <br><tt>Prob[F > F0] = 0.09137</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 4. Sat Jul 28 20:00:10 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 4. Sun Dec 29 19:58:49 2002</tt>
 <p><tt>Whole plot (block, fertilizer) analysis</tt>
 <p><tt>Least-squares means for: fertilizer</tt>
 <p><tt>LSD&nbsp; method</tt>
 <br><tt>Minimum significant differences are for level 0.05000</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 5. Sat Jul 28 20:00:10 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 5. Sun Dec 29 19:58:49 2002</tt>
 <p><tt>Whole plot (block, fertilizer) analysis</tt>
-<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-_stat_ for fertilizer</tt>
-<br><tt>=======================================================</tt>
-<br><tt>|_type_&nbsp; |_fertili|1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|========|========|========|========|========|========|</tt>
-<br><tt>|EFFN&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 4.0000|&nbsp; 4.0000|&nbsp; 4.0000|&nbsp; 4.0000|</tt>
-<br><tt>|--------+--------|--------+--------+--------+--------|</tt>
-<br><tt>|LSMDIFF |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | -1.0000|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-| -0.6000|&nbsp; 0.4000|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-| -4.1000| -3.1000| -3.5000|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|--------+--------|--------+--------+--------+--------|</tt>
-<br><tt>|LSMEAN&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 38.8000|
-39.8000| 39.4000| 42.9000|</tt>
-<br><tt>|--------+--------|--------+--------+--------+--------|</tt>
-<br><tt>|MINDIFF |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; 3.4196|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 3.4196|&nbsp; 3.4196|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 3.4196|&nbsp; 3.4196|&nbsp; 3.4196|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|--------+--------|--------+--------+--------+--------|</tt>
-<br><tt>|PROB&nbsp;&nbsp;&nbsp; |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 0.4207|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 0.6155|&nbsp; 0.7344|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|--------+--------+--------+--------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 0.0317|&nbsp; 0.0633|&nbsp; 0.0472|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>-------------------------------------------------------</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 6. Sat Jul 28 20:00:10 2001</tt>
+<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_stat_ for _lsm_ / fertilizer</tt>
+<br><tt>================================================================</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|38.8&nbsp;&nbsp;&nbsp; |39.4&nbsp;&nbsp;&nbsp;
+|39.8&nbsp;&nbsp;&nbsp;
+|42.9&nbsp;&nbsp;&nbsp; |</tt>
+<br><tt>|--------+--------+--------|--------+--------+--------+--------|</tt>
+<br><tt>|_type_&nbsp;
+|_LSMEAN_|_fertili|1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
+<br><tt>|========|========|========|========|========|========|========|</tt>
+<br><tt>|EFFN&nbsp;&nbsp;&nbsp; |0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; 4.0000|&nbsp;
+4.0000|&nbsp;
+4.0000|&nbsp; 4.0000|</tt>
+<br><tt>|--------+--------+--------|--------+--------+--------+--------|</tt>
+<br><tt>|LSMDIFF |38.8&nbsp;&nbsp;&nbsp;
+|1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 0.0000|&nbsp; 0.6000|&nbsp; 1.0000|&nbsp; 4.1000|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|39.4&nbsp;&nbsp;&nbsp;
+|3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | -0.6000|&nbsp; 0.0000|&nbsp;
+0.4000|&nbsp;
+3.5000|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|39.8&nbsp;&nbsp;&nbsp;
+|2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | -1.0000| -0.4000|&nbsp;
+0.0000|&nbsp;
+3.1000|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|42.9&nbsp;&nbsp;&nbsp;
+|4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | -4.1000| -3.5000|
+-3.1000|&nbsp;
+0.0000|</tt>
+<br><tt>|--------+--------+--------|--------+--------+--------+--------|</tt>
+<br><tt>|MINDIFF |38.8&nbsp;&nbsp;&nbsp;
+|1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 3.4196|&nbsp; 3.4196|&nbsp; 3.4196|&nbsp; 3.4196|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|39.4&nbsp;&nbsp;&nbsp;
+|3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; 3.4196|&nbsp;
+3.4196|&nbsp;
+3.4196|&nbsp; 3.4196|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|39.8&nbsp;&nbsp;&nbsp;
+|2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; 3.4196|&nbsp;
+3.4196|&nbsp;
+3.4196|&nbsp; 3.4196|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|42.9&nbsp;&nbsp;&nbsp;
+|4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; 3.4196|&nbsp;
+3.4196|&nbsp;
+3.4196|&nbsp; 3.4196|</tt>
+<br><tt>|--------+--------+--------|--------+--------+--------+--------|</tt>
+<br><tt>|PROB&nbsp;&nbsp;&nbsp; |38.8&nbsp;&nbsp;&nbsp;
+|1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 1.0000|&nbsp; 0.6155|&nbsp; 0.4207|&nbsp; 0.0317|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|39.4&nbsp;&nbsp;&nbsp;
+|3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; 0.6155|&nbsp;
+1.0000|&nbsp;
+0.7344|&nbsp; 0.0472|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|39.8&nbsp;&nbsp;&nbsp;
+|2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; 0.4207|&nbsp;
+0.7344|&nbsp;
+1.0000|&nbsp; 0.0633|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------+--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|42.9&nbsp;&nbsp;&nbsp;
+|4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; 0.0317|&nbsp;
+0.0472|&nbsp;
+0.0633|&nbsp; 1.0000|</tt>
+<br><tt>----------------------------------------------------------------</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 6. Sun Dec 29 19:58:49 2002</tt>
 <p><tt>Subplot (variety) analysis</tt>
 <p><tt>Response variable: yield</tt>
 <p><tt>Treatment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Levels</tt>
@@ -1090,12 +1539,14 @@ _stat_ for fertilizer</tt>
 <br><tt>fertilizer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 2 3 4</tt>
 <br><tt>block&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 1 2</tt>
-<br><tt>variety&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 2</tt>
+<br><tt>variety&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1
+2</tt>
 <br>&nbsp;
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 7. Sat Jul 28 20:00:10 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 7. Sun Dec 29 19:58:49 2002</tt>
 <p><tt>Subplot (variety) analysis</tt>
-<p><tt>Testing Ho: fertilizer block fertilizer*block variety fertilizer*variety</tt>
+<p><tt>Testing Ho: fertilizer block fertilizer*block variety
+fertilizer*variety</tt>
 <br><tt>Residual: block*variety fertilizer*block*variety</tt>
 <br><tt>Number of observations = 16</tt>
 <br><tt>H0 SS = 182.02, df = 11, MS = 16.5473</tt>
@@ -1103,8 +1554,8 @@ _stat_ for fertilizer</tt>
 <br><tt>R-sq = 0.955736</tt>
 <br><tt>F0 = 7.85161</tt>
 <br><tt>Prob[F > F0] = 0.03064</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 8. Sat Jul 28 20:00:10 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 8. Sun Dec 29 19:58:49 2002</tt>
 <p><tt>Subplot (variety) analysis</tt>
 <p><tt>Testing Ho: variety</tt>
 <br><tt>Residual: block*variety fertilizer*block*variety</tt>
@@ -1113,38 +1564,60 @@ _stat_ for fertilizer</tt>
 <br><tt>Residual SS = 8.43, df = 4, MS = 2.1075</tt>
 <br><tt>F0 = 1.06762</tt>
 <br><tt>Prob[F > F0] = 0.35987</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 9. Sat Jul 28 20:00:10 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 9. Sun Dec 29 19:58:49 2002</tt>
 <p><tt>Subplot (variety) analysis</tt>
 <p><tt>Least-squares means for: variety</tt>
 <p><tt>LSD&nbsp; method</tt>
 <br><tt>Minimum significant differences are for level 0.05000</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp; 10. Sat Jul 28 20:00:10 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp; 10. Sun Dec 29 19:58:49 2002</tt>
 <p><tt>Subplot (variety) analysis</tt>
-<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-_stat_ for variety</tt>
-<br><tt>=====================================</tt>
-<br><tt>|_type_&nbsp; |_variety|1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|========|========|========|========|</tt>
-<br><tt>|EFFN&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 8.0000|&nbsp; 8.0000|</tt>
-<br><tt>|--------+--------|--------+--------|</tt>
-<br><tt>|LSMDIFF |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | -0.7500|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|--------+--------|--------+--------|</tt>
-<br><tt>|LSMEAN&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 39.8500|
-40.6000|</tt>
-<br><tt>|--------+--------|--------+--------|</tt>
-<br><tt>|MINDIFF |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; 2.0153|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|--------+--------|--------+--------|</tt>
-<br><tt>|PROB&nbsp;&nbsp;&nbsp; |2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 0.3599|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>-------------------------------------</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp; 11. Sat Jul 28 20:00:10 2001</tt>
+<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_stat_ for _lsm_ / variety</tt>
+<br><tt>==============================================</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|39.85&nbsp;&nbsp; |40.6&nbsp;&nbsp;&nbsp; |</tt>
+<br><tt>|--------+--------+--------|--------+--------|</tt>
+<br><tt>|_type_&nbsp;
+|_LSMEAN_|_variety|1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
+<br><tt>|========|========|========|========|========|</tt>
+<br><tt>|EFFN&nbsp;&nbsp;&nbsp; |0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; 8.0000|&nbsp;
+8.0000|</tt>
+<br><tt>|--------+--------+--------|--------+--------|</tt>
+<br><tt>|LSMDIFF |39.85&nbsp;&nbsp;
+|1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 0.0000|&nbsp; 0.7500|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|40.6&nbsp;&nbsp;&nbsp;
+|2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | -0.7500|&nbsp; 0.0000|</tt>
+<br><tt>|--------+--------+--------|--------+--------|</tt>
+<br><tt>|MINDIFF |39.85&nbsp;&nbsp;
+|1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 2.0153|&nbsp; 2.0153|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|40.6&nbsp;&nbsp;&nbsp;
+|2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; 2.0153|&nbsp;
+2.0153|</tt>
+<br><tt>|--------+--------+--------|--------+--------|</tt>
+<br><tt>|PROB&nbsp;&nbsp;&nbsp; |39.85&nbsp;&nbsp;
+|1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 1.0000|&nbsp; 0.3599|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|--------+--------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|40.6&nbsp;&nbsp;&nbsp;
+|2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; 0.3599|&nbsp;
+1.0000|</tt>
+<br><tt>----------------------------------------------</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp; 11. Sun Dec 29 19:58:49 2002</tt>
 <p><tt>Subplot (variety) analysis</tt>
 <p><tt>Testing Ho: variety*fertilizer</tt>
 <br><tt>Residual: block*variety fertilizer*block*variety</tt>
@@ -1153,25 +1626,26 @@ _stat_ for variety</tt>
 <br><tt>Residual SS = 8.43, df = 4, MS = 2.1075</tt>
 <br><tt>F0 = 0.245156</tt>
 <br><tt>Prob[F > F0] = 0.86125</tt>
-<br>&nbsp;
-<p><a NAME="Latin square"></a><b>Latin square</b>&nbsp;&nbsp; <a href="#Sample output">[Back
+<p><a NAME="Latin square"></a><b>Latin square</b>&nbsp;&nbsp; <a
+href="#Sample output">[Back
 to Sample output]</a>
 <p>ED: pp. 122 - 125
-<br><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 1. Sat Jul 28 20:05:55 2001</tt>
+<br><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 1. Sun Dec 29 19:59:10 2002</tt>
 <br>&nbsp;
 <p><tt>Response variable: error</tt>
 <p><tt>Treatment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Levels</tt>
 <br><tt>--------&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ------</tt>
-<br><tt>sampler&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A B C D
+<br><tt>sampler&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A B C
+D
 E F</tt>
 <br><tt>area&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 1 2 3 4 5 6</tt>
 <br><tt>order&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 6 5 1 2 4 3</tt>
 <br>&nbsp;
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 2. Sat Jul 28 20:05:56 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 2. Sun Dec 29 19:59:11 2002</tt>
 <br>&nbsp;
 <p><tt>Testing Ho: sampler area order</tt>
 <br><tt>Residual: sampler*area*order</tt>
@@ -1181,8 +1655,8 @@ E F</tt>
 <br><tt>R-sq = 0.798065</tt>
 <br><tt>F0 = 5.26945</tt>
 <br><tt>Prob[F > F0] = 0.00039</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 3. Sat Jul 28 20:05:56 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 3. Sun Dec 29 19:59:12 2002</tt>
 <br>&nbsp;
 <p><tt>Testing Ho: sampler</tt>
 <br><tt>Residual: sampler*area*order</tt>
@@ -1191,99 +1665,150 @@ E F</tt>
 <br><tt>Residual SS = 66.5633, df = 20, MS = 3.32817</tt>
 <br><tt>F0 = 9.35024</tt>
 <br><tt>Prob[F > F0] = 0.00011</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 4. Sat Jul 28 20:05:56 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 4. Sun Dec 29 19:59:12 2002</tt>
 <br>&nbsp;
 <p><tt>Least-squares means for: sampler</tt>
 <p><tt>Tukey method</tt>
 <p><tt>Minimum significant differences are for level 0.05000</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 5. Sat Jul 28 20:05:58 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 5. Sun Dec 29 19:59:17 2002</tt>
 <br>&nbsp;
-<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-_stat_ for sampler</tt>
-<br><tt>===================================================================</tt>
-<br><tt>|_type_&nbsp; |_sampler|A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|F&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|========|========|=======|=======|=======|=======|=======|=======|</tt>
-<br><tt>|EFFN&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 6.000|&nbsp; 6.000|&nbsp; 6.000|&nbsp; 6.000|&nbsp; 6.000|&nbsp;
-6.000|</tt>
-<br><tt>|--------+--------|-------+-------+-------+-------+-------+-------|</tt>
-<br><tt>|LSMDIFF |B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; 0.483|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+_stat_ for _lsm_ / sampler</tt>
+<br><tt>============================================================================</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|1.2&nbsp;&nbsp;&nbsp; |2.66667|5.58333|6.06667|6.11667|6.91667|</tt>
+<br><tt>|--------+--------+--------|-------+-------+-------+-------+-------+-------|</tt>
+<br><tt>|_type_&nbsp;
+|_LSMEAN_|_sampler|F&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 |</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|-------+-------+-------+-------+-------+-------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-| -0.050| -0.533|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|-------+-------+-------+-------+-------+-------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-| -0.850| -1.333| -0.800|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|-------+-------+-------+-------+-------+-------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 3.400|&nbsp; 2.917|&nbsp; 3.450|&nbsp; 4.250|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|-------+-------+-------+-------+-------+-------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |F&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 4.867|&nbsp; 4.383|&nbsp; 4.917|&nbsp; 5.717|&nbsp; 1.467|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|--------+--------|-------+-------+-------+-------+-------+-------|</tt>
-<br><tt>|LSMEAN&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;
-6.067|&nbsp; 5.583|&nbsp; 6.117|&nbsp; 6.917|&nbsp; 2.667|&nbsp; 1.200|</tt>
-<br><tt>|--------+--------|-------+-------+-------+-------+-------+-------|</tt>
-<br><tt>|MINDIFF |B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; 3.311|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|-------+-------+-------+-------+-------+-------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 3.311|&nbsp; 3.311|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|-------+-------+-------+-------+-------+-------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 3.311|&nbsp; 3.311|&nbsp; 3.311|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|-------+-------+-------+-------+-------+-------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 3.311|&nbsp; 3.311|&nbsp; 3.311|&nbsp; 3.311|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|-------+-------+-------+-------+-------+-------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |F&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 3.311|&nbsp; 3.311|&nbsp; 3.311|&nbsp; 3.311|&nbsp; 3.311|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|--------+--------|-------+-------+-------+-------+-------+-------|</tt>
-<br><tt>|PROB&nbsp;&nbsp;&nbsp; |B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 0.997|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|-------+-------+-------+-------+-------+-------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 1.000|&nbsp; 0.995|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|-------+-------+-------+-------+-------+-------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 0.963|&nbsp; 0.799|&nbsp; 0.971|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|-------+-------+-------+-------+-------+-------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 0.042|&nbsp; 0.105|&nbsp; 0.038|&nbsp; 0.007|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|-------+-------+-------+-------+-------+-------|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |F&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|&nbsp; 0.002|&nbsp; 0.006|&nbsp; 0.002|&nbsp; 0.000|&nbsp; 0.731|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|</tt>
-<br><tt>-------------------------------------------------------------------</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 6. Sat Jul 28 20:05:59 2001</tt>
+<br><tt>|========|========|========|=======|=======|=======|=======|=======|=======|</tt>
+<br><tt>|EFFN&nbsp;&nbsp;&nbsp; |0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; 6.000|&nbsp;
+6.000|&nbsp;
+6.000|&nbsp; 6.000|&nbsp; 6.000|&nbsp; 6.000|</tt>
+<br><tt>|--------+--------+--------|-------+-------+-------+-------+-------+-------|</tt>
+<br><tt>|LSMDIFF |1.2&nbsp;&nbsp;&nbsp;&nbsp;
+|F&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 0.000|&nbsp; 1.467|&nbsp; 4.383|&nbsp; 4.867|&nbsp;
+4.917|&nbsp;
+5.717|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|-------+-------+-------+-------+-------+-------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |2.66667
+|E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+| -1.467|&nbsp; 0.000|&nbsp; 2.917|&nbsp; 3.400|&nbsp; 3.450|&nbsp;
+4.250|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|-------+-------+-------+-------+-------+-------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |5.58333
+|B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+| -4.383| -2.917|&nbsp; 0.000|&nbsp; 0.483|&nbsp; 0.533|&nbsp;
+1.333|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|-------+-------+-------+-------+-------+-------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |6.06667
+|A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+| -4.867| -3.400| -0.483|&nbsp; 0.000|&nbsp; 0.050|&nbsp; 0.850|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|-------+-------+-------+-------+-------+-------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |6.11667
+|C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+| -4.917| -3.450| -0.533| -0.050|&nbsp; 0.000|&nbsp; 0.800|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|-------+-------+-------+-------+-------+-------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |6.91667
+|D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+| -5.717| -4.250| -1.333| -0.850| -0.800|&nbsp; 0.000|</tt>
+<br><tt>|--------+--------+--------|-------+-------+-------+-------+-------+-------|</tt>
+<br><tt>|MINDIFF |1.2&nbsp;&nbsp;&nbsp;&nbsp;
+|F&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 3.311|&nbsp; 3.311|&nbsp; 3.311|&nbsp; 3.311|&nbsp;
+3.311|&nbsp;
+3.311|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|-------+-------+-------+-------+-------+-------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |2.66667
+|E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 3.311|&nbsp; 3.311|&nbsp; 3.311|&nbsp; 3.311|&nbsp;
+3.311|&nbsp;
+3.311|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|-------+-------+-------+-------+-------+-------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |5.58333
+|B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 3.311|&nbsp; 3.311|&nbsp; 3.311|&nbsp; 3.311|&nbsp;
+3.311|&nbsp;
+3.311|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|-------+-------+-------+-------+-------+-------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |6.06667
+|A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 3.311|&nbsp; 3.311|&nbsp; 3.311|&nbsp; 3.311|&nbsp;
+3.311|&nbsp;
+3.311|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|-------+-------+-------+-------+-------+-------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |6.11667
+|C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 3.311|&nbsp; 3.311|&nbsp; 3.311|&nbsp; 3.311|&nbsp;
+3.311|&nbsp;
+3.311|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|-------+-------+-------+-------+-------+-------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |6.91667
+|D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 3.311|&nbsp; 3.311|&nbsp; 3.311|&nbsp; 3.311|&nbsp;
+3.311|&nbsp;
+3.311|</tt>
+<br><tt>|--------+--------+--------|-------+-------+-------+-------+-------+-------|</tt>
+<br><tt>|PROB&nbsp;&nbsp;&nbsp; |1.2&nbsp;&nbsp;&nbsp;&nbsp;
+|F&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 1.000|&nbsp; 0.731|&nbsp; 0.006|&nbsp; 0.002|&nbsp;
+0.002|&nbsp;
+0.000|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|-------+-------+-------+-------+-------+-------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |2.66667
+|E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 0.731|&nbsp; 1.000|&nbsp; 0.105|&nbsp; 0.042|&nbsp;
+0.038|&nbsp;
+0.007|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|-------+-------+-------+-------+-------+-------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |5.58333
+|B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 0.006|&nbsp; 0.105|&nbsp; 1.000|&nbsp; 0.997|&nbsp;
+0.995|&nbsp;
+0.799|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|-------+-------+-------+-------+-------+-------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |6.06667
+|A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 0.002|&nbsp; 0.042|&nbsp; 0.997|&nbsp; 1.000|&nbsp;
+1.000|&nbsp;
+0.963|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|-------+-------+-------+-------+-------+-------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |6.11667
+|C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 0.002|&nbsp; 0.038|&nbsp; 0.995|&nbsp; 1.000|&nbsp;
+1.000|&nbsp;
+0.971|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------+--------|-------+-------+-------+-------+-------+-------|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |6.91667
+|D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp; 0.000|&nbsp; 0.007|&nbsp; 0.799|&nbsp; 0.963|&nbsp;
+0.971|&nbsp;
+1.000|</tt>
+<br><tt>----------------------------------------------------------------------------</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 6. Sun Dec 29 19:59:17 2002</tt>
 <br>&nbsp;
 <p><tt>Testing Ho: area</tt>
 <br><tt>Residual: sampler*area*order</tt>
@@ -1292,8 +1817,8 @@ _stat_ for sampler</tt>
 <br><tt>Residual SS = 66.5633, df = 20, MS = 3.32817</tt>
 <br><tt>F0 = 4.7395</tt>
 <br><tt>Prob[F > F0] = 0.00512</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 7. Sat Jul 28 20:05:59 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 7. Sun Dec 29 19:59:17 2002</tt>
 <br>&nbsp;
 <p><tt>Testing Ho: order</tt>
 <br><tt>Residual: sampler*area*order</tt>
@@ -1302,17 +1827,19 @@ _stat_ for sampler</tt>
 <br><tt>Residual SS = 66.5633, df = 20, MS = 3.32817</tt>
 <br><tt>F0 = 1.71861</tt>
 <br><tt>Prob[F > F0] = 0.17635</tt>
-<p><a NAME="Missing treatment combinations"></a><b>Missing treatment combinations&nbsp;</b>
-
-<a href="#Sample output">[Back to Sample output]</a>
+<br>&nbsp;
+<p><a NAME="Missing treatment combinations"></a><b>Missing treatment
+combinations
+</b><a href="#Sample output">[Back
+to Sample output]</a>
 <p>AMD: pp. 173 - 177
-<br><tt>---------------------------------</tt>
+<br><tt>=================================</tt>
 <br><tt>Dap&nbsp;&nbsp; 1. Sat Jul 28 19:54:08 2001</tt>
 <p><tt>Testing interaction Ho:</tt>
 <br>&nbsp;
 <p><tt>u11 - u21 - (u13 - u23) = 0 and</tt>
 <br><tt>u21 - u31 - (u22 - u32) = 0</tt>
-<br><tt>---------------------------------</tt>
+<br><tt>=================================</tt>
 <br><tt>Dap&nbsp;&nbsp; 2. Sat Jul 28 19:54:08 2001</tt>
 <p><tt>Testing interaction Ho:</tt>
 <br>&nbsp;
@@ -1322,13 +1849,13 @@ _stat_ for sampler</tt>
 <br><tt>Error SS = 14.5, df = 3, MS = 4.83333</tt>
 <br><tt>F0 = 1.94253</tt>
 <br><tt>Prob[F > F0] = 0.28763</tt>
-<p><tt>---------------------------------</tt>
+<p><tt>=================================</tt>
 <br><tt>Dap&nbsp;&nbsp; 3. Sat Jul 28 19:54:08 2001</tt>
 <p><tt>Testing treatment Ho:</tt>
 <br>&nbsp;
 <p><tt>u11 + u13 - (u21 + u23) = 0</tt>
 <br><tt>u21 + u22 - (u31 + u32) = 0</tt>
-<p><tt>---------------------------------</tt>
+<p><tt>=================================</tt>
 <br><tt>Dap&nbsp;&nbsp; 4. Sat Jul 28 19:54:08 2001</tt>
 <p><tt>Testing treatment Ho:</tt>
 <br>&nbsp;
@@ -1338,11 +1865,11 @@ _stat_ for sampler</tt>
 <br><tt>Error SS = 14.5, df = 3, MS = 4.83333</tt>
 <br><tt>F0 = 0.287356</tt>
 <br><tt>Prob[F > F0] = 0.76882</tt>
-<p><a NAME="Linear regression"></a><b>Linear regression&nbsp;</b> 
-<a href="#Sample output">[Back
+<p><a NAME="Linear regression"></a><b>Linear regression&nbsp;</b> <a
+href="#Sample output">[Back
 to Sample output]</a>
 <p>MS: pp. 95 - 97
-<br><tt>---------------------------------</tt>
+<br><tt>=================================</tt>
 <br><tt>Dap&nbsp;&nbsp; 1. Sat Jul 28 19:55:34 2001</tt>
 <br>&nbsp;
 <p><tt>Reduced | full model regressors: _intercept_ | soilphos</tt>
@@ -1350,83 +1877,111 @@ to Sample output]</a>
 <br><tt>Response: plantphos</tt>
 <br><tt>&nbsp;&nbsp; F0(1, 7) = 12.8868, Prob[F > F0] = 0.00886</tt>
 <br><tt>&nbsp;&nbsp; R-sq = 0.648008, Adj R-sq = 0.597723</tt>
-<p><tt>&nbsp;&nbsp; Parameter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-Estimate&nbsp;&nbsp;&nbsp; Std Error&nbsp;&nbsp; T0[&nbsp;&nbsp;&nbsp;&nbsp;
+<p><tt>&nbsp;&nbsp;
+Parameter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Estimate&nbsp;&nbsp;&nbsp; Std Error&nbsp;&nbsp;
+T0[&nbsp;&nbsp;&nbsp;&nbsp;
 7]&nbsp; Prob[|T|>|T0|]</tt>
-<br><tt>&nbsp;&nbsp; _intercept_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-61.5804&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6.24765&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br><tt>&nbsp;&nbsp;
+_intercept_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+61.5804&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6.24765&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 9.85656&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.00003</tt>
-<br><tt>&nbsp;&nbsp; soilphos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br><tt>&nbsp;&nbsp;
+soilphos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 1.41689&nbsp;&nbsp;&nbsp;&nbsp; 0.394698&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 3.58982&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.00886</tt>
 <br>&nbsp;
-<p><a NAME="Linear regression, model building"></a><b>Linear regression,
-model building</b>&nbsp;&nbsp; <a href="#Sample output">[Back to Sample
+<p><a NAME="Linear regression, model building"></a><b>Linear
+regression,
+model building</b>&nbsp;&nbsp; <a href="#Sample output">[Back to
+Sample
 output]</a>
 <p>LM: pp. 50 - 60
-<br><tt>---------------------------------</tt>
+<br><tt>=================================</tt>
 <br><tt>Dap&nbsp;&nbsp; 1. Sat Jul 28 20:08:03 2001</tt>
 <p><tt>Correlations</tt>
 <p><tt>For: _type_ = CORR</tt>
-<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _corr_ for
+<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _corr_
+for
 _var2_</tt>
 <br><tt>=============================================</tt>
-<br><tt>|_var1_&nbsp; |x[0]&nbsp; |x[1]&nbsp; |x[2]&nbsp; |x[3]&nbsp; |y&nbsp;&nbsp;&nbsp;&nbsp;
+<br><tt>|_var1_&nbsp; |x[0]&nbsp; |x[1]&nbsp; |x[2]&nbsp; |x[3]&nbsp;
+|y&nbsp;&nbsp;&nbsp;&nbsp;
 |</tt>
 <br><tt>|========|======|======|======|======|======|</tt>
-<br><tt>|x[0]&nbsp;&nbsp;&nbsp; | 1.000| 0.971|-0.668| 0.652| 0.740|</tt>
+<br><tt>|x[0]&nbsp;&nbsp;&nbsp; | 1.000| 0.971|-0.668| 0.652|
+0.740|</tt>
 <br><tt>|--------|------+------+------+------+------|</tt>
-<br><tt>|x[1]&nbsp;&nbsp;&nbsp; | 0.971| 1.000|-0.598| 0.527| 0.628|</tt>
+<br><tt>|x[1]&nbsp;&nbsp;&nbsp; | 0.971| 1.000|-0.598| 0.527|
+0.628|</tt>
 <br><tt>|--------|------+------+------+------+------|</tt>
-<br><tt>|x[2]&nbsp;&nbsp;&nbsp; |-0.668|-0.598| 1.000|-0.841|-0.780|</tt>
+<br><tt>|x[2]&nbsp;&nbsp;&nbsp; |-0.668|-0.598|
+1.000|-0.841|-0.780|</tt>
 <br><tt>|--------|------+------+------+------+------|</tt>
-<br><tt>|x[3]&nbsp;&nbsp;&nbsp; | 0.652| 0.527|-0.841| 1.000| 0.978|</tt>
+<br><tt>|x[3]&nbsp;&nbsp;&nbsp; | 0.652| 0.527|-0.841| 1.000|
+0.978|</tt>
 <br><tt>|--------|------+------+------+------+------|</tt>
-<br><tt>|y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 0.740| 0.628|-0.780| 0.978|
+<br><tt>|y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 0.740| 0.628|-0.780|
+0.978|
 1.000|</tt>
 <br><tt>---------------------------------------------</tt>
-<p><tt>---------------------------------</tt>
+<p><tt>=================================</tt>
 <br><tt>Dap&nbsp;&nbsp; 2. Sat Jul 28 20:08:03 2001</tt>
 <p><tt>Correlations</tt>
 <p><tt>For: _type_ = N</tt>
-<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _corr_ for
+<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _corr_
+for
 _var2_</tt>
 <br><tt>=============================================</tt>
-<br><tt>|_var1_&nbsp; |x[0]&nbsp; |x[1]&nbsp; |x[2]&nbsp; |x[3]&nbsp; |y&nbsp;&nbsp;&nbsp;&nbsp;
+<br><tt>|_var1_&nbsp; |x[0]&nbsp; |x[1]&nbsp; |x[2]&nbsp; |x[3]&nbsp;
+|y&nbsp;&nbsp;&nbsp;&nbsp;
 |</tt>
 <br><tt>|========|======|======|======|======|======|</tt>
-<br><tt>|x[0]&nbsp;&nbsp;&nbsp; |10.000|10.000|10.000|10.000|10.000|</tt>
+<br><tt>|x[0]&nbsp;&nbsp;&nbsp;
+|10.000|10.000|10.000|10.000|10.000|</tt>
 <br><tt>|--------|------+------+------+------+------|</tt>
-<br><tt>|x[1]&nbsp;&nbsp;&nbsp; |10.000|10.000|10.000|10.000|10.000|</tt>
+<br><tt>|x[1]&nbsp;&nbsp;&nbsp;
+|10.000|10.000|10.000|10.000|10.000|</tt>
 <br><tt>|--------|------+------+------+------+------|</tt>
-<br><tt>|x[2]&nbsp;&nbsp;&nbsp; |10.000|10.000|10.000|10.000|10.000|</tt>
+<br><tt>|x[2]&nbsp;&nbsp;&nbsp;
+|10.000|10.000|10.000|10.000|10.000|</tt>
 <br><tt>|--------|------+------+------+------+------|</tt>
-<br><tt>|x[3]&nbsp;&nbsp;&nbsp; |10.000|10.000|10.000|10.000|10.000|</tt>
+<br><tt>|x[3]&nbsp;&nbsp;&nbsp;
+|10.000|10.000|10.000|10.000|10.000|</tt>
 <br><tt>|--------|------+------+------+------+------|</tt>
-<br><tt>|y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |10.000|10.000|10.000|10.000|10.000|</tt>
+<br><tt>|y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|10.000|10.000|10.000|10.000|10.000|</tt>
 <br><tt>---------------------------------------------</tt>
-<p><tt>---------------------------------</tt>
+<p><tt>=================================</tt>
 <br><tt>Dap&nbsp;&nbsp; 3. Sat Jul 28 20:08:03 2001</tt>
 <p><tt>Correlations</tt>
 <p><tt>For: _type_ = PCORR</tt>
-<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _corr_ for
+<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _corr_
+for
 _var2_</tt>
 <br><tt>=============================================</tt>
-<br><tt>|_var1_&nbsp; |x[0]&nbsp; |x[1]&nbsp; |x[2]&nbsp; |x[3]&nbsp; |y&nbsp;&nbsp;&nbsp;&nbsp;
+<br><tt>|_var1_&nbsp; |x[0]&nbsp; |x[1]&nbsp; |x[2]&nbsp; |x[3]&nbsp;
+|y&nbsp;&nbsp;&nbsp;&nbsp;
 |</tt>
 <br><tt>|========|======|======|======|======|======|</tt>
-<br><tt>|x[0]&nbsp;&nbsp;&nbsp; | 0.000| 0.000| 0.035| 0.041| 0.014|</tt>
+<br><tt>|x[0]&nbsp;&nbsp;&nbsp; | 0.000| 0.000| 0.035| 0.041|
+0.014|</tt>
 <br><tt>|--------|------+------+------+------+------|</tt>
-<br><tt>|x[1]&nbsp;&nbsp;&nbsp; | 0.000| 0.000| 0.068| 0.118| 0.052|</tt>
+<br><tt>|x[1]&nbsp;&nbsp;&nbsp; | 0.000| 0.000| 0.068| 0.118|
+0.052|</tt>
 <br><tt>|--------|------+------+------+------+------|</tt>
-<br><tt>|x[2]&nbsp;&nbsp;&nbsp; | 0.035| 0.068| 0.000| 0.002| 0.008|</tt>
+<br><tt>|x[2]&nbsp;&nbsp;&nbsp; | 0.035| 0.068| 0.000| 0.002|
+0.008|</tt>
 <br><tt>|--------|------+------+------+------+------|</tt>
-<br><tt>|x[3]&nbsp;&nbsp;&nbsp; | 0.041| 0.118| 0.002| 0.000| 0.000|</tt>
+<br><tt>|x[3]&nbsp;&nbsp;&nbsp; | 0.041| 0.118| 0.002| 0.000|
+0.000|</tt>
 <br><tt>|--------|------+------+------+------+------|</tt>
-<br><tt>|y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 0.014| 0.052| 0.008| 0.000|
+<br><tt>|y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 0.014| 0.052| 0.008|
+0.000|
 0.000|</tt>
 <br><tt>---------------------------------------------</tt>
-<p><tt>---------------------------------</tt>
+<p><tt>=================================</tt>
 <br><tt>Dap&nbsp;&nbsp; 4. Sat Jul 28 20:08:03 2001</tt>
 <p><tt>Model building</tt>
 <p><tt>Reduced | full model regressors: _intercept_ | x[3]</tt>
@@ -1434,16 +1989,22 @@ _var2_</tt>
 <br><tt>Response: y</tt>
 <br><tt>&nbsp;&nbsp; F0(1, 8) = 172.619, Prob[F > F0] = 0.00001</tt>
 <br><tt>&nbsp;&nbsp; R-sq = 0.955708, Adj R-sq = 0.950171</tt>
-<p><tt>&nbsp;&nbsp; Parameter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-Estimate&nbsp;&nbsp;&nbsp; Std Error&nbsp;&nbsp; T0[&nbsp;&nbsp;&nbsp;&nbsp;
+<p><tt>&nbsp;&nbsp;
+Parameter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Estimate&nbsp;&nbsp;&nbsp; Std Error&nbsp;&nbsp;
+T0[&nbsp;&nbsp;&nbsp;&nbsp;
 8]&nbsp; Prob[|T|>|T0|]</tt>
-<br><tt>&nbsp;&nbsp; _intercept_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-21.8042&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.83157&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br><tt>&nbsp;&nbsp;
+_intercept_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+21.8042&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2.83157&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 7.70041&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.00006</tt>
-<br><tt>&nbsp;&nbsp; x[3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-1.02579&nbsp;&nbsp;&nbsp; 0.0780755&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 13.1384&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br><tt>&nbsp;&nbsp;
+x[3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1.02579&nbsp;&nbsp;&nbsp; 0.0780755&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+13.1384&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 0.00001</tt>
-<p><tt>---------------------------------</tt>
+<p><tt>=================================</tt>
 <br><tt>Dap&nbsp;&nbsp; 5. Sat Jul 28 20:08:03 2001</tt>
 <p><tt>Model building</tt>
 <p><tt>Reduced | full model regressors: _intercept_ x[3] | x[0]</tt>
@@ -1451,76 +2012,106 @@ Estimate&nbsp;&nbsp;&nbsp; Std Error&nbsp;&nbsp; T0[&nbsp;&nbsp;&nbsp;&nbsp;
 <br><tt>Response: y</tt>
 <br><tt>&nbsp;&nbsp; F0(2, 7) = 131.793, Prob[F > F0] = 0.00001</tt>
 <br><tt>&nbsp;&nbsp; R-sq = 0.97413, Adj R-sq = 0.966739</tt>
-<br><tt>&nbsp;&nbsp; F-change(1, 7) = 4.98488, Prob[F > F-change] = 0.06073</tt>
-<p><tt>&nbsp;&nbsp; Parameter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-Estimate&nbsp;&nbsp;&nbsp; Std Error&nbsp;&nbsp; T0[&nbsp;&nbsp;&nbsp;&nbsp;
+<br><tt>&nbsp;&nbsp; F-change(1, 7) = 4.98488, Prob[F > F-change] =
+0.06073</tt>
+<p><tt>&nbsp;&nbsp;
+Parameter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Estimate&nbsp;&nbsp;&nbsp; Std Error&nbsp;&nbsp;
+T0[&nbsp;&nbsp;&nbsp;&nbsp;
 7]&nbsp; Prob[|T|>|T0|]</tt>
-<br><tt>&nbsp;&nbsp; _intercept_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-12.9449&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4.59315&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br><tt>&nbsp;&nbsp;
+_intercept_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+12.9449&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+4.59315&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 2.81831&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.02584</tt>
-<br><tt>&nbsp;&nbsp; x[3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-0.903324&nbsp;&nbsp;&nbsp;&nbsp; 0.084129&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br><tt>&nbsp;&nbsp;
+x[3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0.903324&nbsp;&nbsp;&nbsp;&nbsp;
+0.084129&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 10.7374&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.00002</tt>
-<br><tt>&nbsp;&nbsp; x[0]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br><tt>&nbsp;&nbsp;
+x[0]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 1.88521&nbsp;&nbsp;&nbsp;&nbsp; 0.844369&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 2.23268&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.06073</tt>
-<p><tt>---------------------------------</tt>
+<p><tt>=================================</tt>
 <br><tt>Dap&nbsp;&nbsp; 6. Sat Jul 28 20:08:03 2001</tt>
 <p><tt>Model building</tt>
-<p><tt>Reduced | full model regressors: _intercept_ x[3] x[0] | x[2]</tt>
+<p><tt>Reduced | full model regressors: _intercept_ x[3] x[0] |
+x[2]</tt>
 <br><tt>Number of observations = 10</tt>
 <br><tt>Response: y</tt>
 <br><tt>&nbsp;&nbsp; F0(3, 6) = 183.912, Prob[F > F0] = 0.00001</tt>
 <br><tt>&nbsp;&nbsp; R-sq = 0.989242, Adj R-sq = 0.983863</tt>
-<br><tt>&nbsp;&nbsp; F-change(1, 6) = 8.42848, Prob[F > F-change] = 0.02723</tt>
-<p><tt>&nbsp;&nbsp; Parameter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-Estimate&nbsp;&nbsp;&nbsp; Std Error&nbsp;&nbsp; T0[&nbsp;&nbsp;&nbsp;&nbsp;
+<br><tt>&nbsp;&nbsp; F-change(1, 6) = 8.42848, Prob[F > F-change] =
+0.02723</tt>
+<p><tt>&nbsp;&nbsp;
+Parameter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Estimate&nbsp;&nbsp;&nbsp; Std Error&nbsp;&nbsp;
+T0[&nbsp;&nbsp;&nbsp;&nbsp;
 6]&nbsp; Prob[|T|>|T0|]</tt>
-<br><tt>&nbsp;&nbsp; _intercept_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-2.55427&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4.80051&nbsp;&nbsp;&nbsp;&nbsp; 0.532084&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br><tt>&nbsp;&nbsp;
+_intercept_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2.55427&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4.80051&nbsp;&nbsp;&nbsp;&nbsp;
+0.532084&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 0.61379</tt>
-<br><tt>&nbsp;&nbsp; x[3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-1.07907&nbsp;&nbsp;&nbsp; 0.0842512&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 12.8078&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br><tt>&nbsp;&nbsp;
+x[3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1.07907&nbsp;&nbsp;&nbsp; 0.0842512&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+12.8078&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 0.00002</tt>
-<br><tt>&nbsp;&nbsp; x[0]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br><tt>&nbsp;&nbsp;
+x[0]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 2.40786&nbsp;&nbsp;&nbsp;&nbsp; 0.615063&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 3.91482&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.00785</tt>
-<br><tt>&nbsp;&nbsp; x[2]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-0.936516&nbsp;&nbsp;&nbsp;&nbsp; 0.322582&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br><tt>&nbsp;&nbsp;
+x[2]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0.936516&nbsp;&nbsp;&nbsp;&nbsp;
+0.322582&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 2.90318&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.02723</tt>
-<p><tt>---------------------------------</tt>
+<p><tt>=================================</tt>
 <br><tt>Dap&nbsp;&nbsp; 7. Sat Jul 28 20:08:03 2001</tt>
 <p><tt>Model building</tt>
-<p><tt>Reduced | full model regressors: _intercept_ x[0] x[3] x[2] | x[1]</tt>
+<p><tt>Reduced | full model regressors: _intercept_ x[0] x[3] x[2] |
+x[1]</tt>
 <br><tt>Number of observations = 10</tt>
 <br><tt>Response: y</tt>
 <br><tt>&nbsp;&nbsp; F0(4, 5) = 126.46, Prob[F > F0] = 0.00004</tt>
 <br><tt>&nbsp;&nbsp; R-sq = 0.990212, Adj R-sq = 0.982382</tt>
-<br><tt>&nbsp;&nbsp; F-change(1, 5) = 0.495515, Prob[F > F-change] = 0.51290</tt>
-<p><tt>&nbsp;&nbsp; Parameter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-Estimate&nbsp;&nbsp;&nbsp; Std Error&nbsp;&nbsp; T0[&nbsp;&nbsp;&nbsp;&nbsp;
+<br><tt>&nbsp;&nbsp; F-change(1, 5) = 0.495515, Prob[F > F-change] =
+0.51290</tt>
+<p><tt>&nbsp;&nbsp;
+Parameter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Estimate&nbsp;&nbsp;&nbsp; Std Error&nbsp;&nbsp;
+T0[&nbsp;&nbsp;&nbsp;&nbsp;
 5]&nbsp; Prob[|T|>|T0|]</tt>
-<br><tt>&nbsp;&nbsp; _intercept_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-2.80985&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5.02914&nbsp;&nbsp;&nbsp;&nbsp; 0.558715&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br><tt>&nbsp;&nbsp;
+_intercept_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2.80985&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5.02914&nbsp;&nbsp;&nbsp;&nbsp;
+0.558715&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 0.60046</tt>
-<br><tt>&nbsp;&nbsp; x[0]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br><tt>&nbsp;&nbsp;
+x[0]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 0.523737&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.75266&nbsp;&nbsp;&nbsp;&nbsp;
 0.190266&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.85659</tt>
-<br><tt>&nbsp;&nbsp; x[3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br><tt>&nbsp;&nbsp;
+x[3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 1.12232&nbsp;&nbsp;&nbsp;&nbsp; 0.107355&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 10.4543&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.00014</tt>
-<br><tt>&nbsp;&nbsp; x[2]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-0.994528&nbsp;&nbsp;&nbsp;&nbsp; 0.346992&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br><tt>&nbsp;&nbsp;
+x[2]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0.994528&nbsp;&nbsp;&nbsp;&nbsp;
+0.346992&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 2.86614&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.03516</tt>
-<br><tt>&nbsp;&nbsp; x[1]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br><tt>&nbsp;&nbsp;
+x[1]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 0.775412&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.10155&nbsp;&nbsp;&nbsp;&nbsp;
 0.703928&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.51290</tt>
 <br>&nbsp;
-<p><a NAME="Ordinal cross-classification"></a><b>Ordinal cross-classification</b>&nbsp;
-
-<a href="#Sample output">[Back to Sample output]</a>
+<p><a NAME="Ordinal cross-classification"></a><b>Ordinal
+cross-classification</b><a href="#Sample output">[Back
+to Sample output]</a>
 <p>CDA: pp. 49 - 50
-<br><tt>---------------------------------</tt>
+<br><tt>=================================</tt>
 <br><tt>Dap&nbsp;&nbsp; 1. Sat Jul 28 20:04:08 2001</tt>
 <br>&nbsp;
 <p><tt>Variable: Levels</tt>
@@ -1533,62 +2124,83 @@ Value&nbsp;&nbsp; ASE</tt>
 <br><tt>Gamma&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 0.127&nbsp; 0.041</tt>
 <br><tt>Kendall's Tau-b&nbsp;&nbsp;&nbsp; 0.088&nbsp; 0.028</tt>
-<br><tt>Somers' D C|R&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.082&nbsp; 0.026</tt>
-<br><tt>Somers' D R|C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.094&nbsp; 0.030</tt>
-<p><tt>---------------------------------</tt>
+<br><tt>Somers' D C|R&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.082&nbsp;
+0.026</tt>
+<br><tt>Somers' D R|C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.094&nbsp;
+0.030</tt>
+<p><tt>=================================</tt>
 <br><tt>Dap&nbsp;&nbsp; 2. Sat Jul 28 20:04:08 2001</tt>
 <br>&nbsp;
 <p><tt>For: _type_ = COUNT</tt>
-<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _cell_ for
+<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _cell_
+for
 jobsat</tt>
 <br><tt>======================================================</tt>
-<br><tt>|income&nbsp; |1verydis&nbsp; |2littledis|3modsat&nbsp;&nbsp; |4verysat&nbsp;
+<br><tt>|income&nbsp; |1verydis&nbsp; |2littledis|3modsat&nbsp;&nbsp;
+|4verysat&nbsp;
 |</tt>
 <br><tt>|========|==========|==========|==========|==========|</tt>
-<br><tt>|00-06&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20.0|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-24.0|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 80.0|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br><tt>|00-06&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+20.0|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+24.0|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+80.0|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 82.0|</tt>
 <br><tt>|--------|----------+----------+----------+----------|</tt>
-<br><tt>|06-15&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 22.0|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-38.0|&nbsp;&nbsp;&nbsp;&nbsp; 104.0|&nbsp;&nbsp;&nbsp;&nbsp; 125.0|</tt>
+<br><tt>|06-15&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+22.0|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+38.0|&nbsp;&nbsp;&nbsp;&nbsp; 104.0|&nbsp;&nbsp;&nbsp;&nbsp;
+125.0|</tt>
 <br><tt>|--------|----------+----------+----------+----------|</tt>
-<br><tt>|15-25&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 13.0|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-28.0|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 81.0|&nbsp;&nbsp;&nbsp;&nbsp; 113.0|</tt>
+<br><tt>|15-25&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+13.0|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+28.0|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 81.0|&nbsp;&nbsp;&nbsp;&nbsp;
+113.0|</tt>
 <br><tt>|--------|----------+----------+----------+----------|</tt>
-<br><tt>|25-&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br><tt>|25-&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 7.0|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 18.0|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 54.0|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 92.0|</tt>
 <br><tt>------------------------------------------------------</tt>
-<p><tt>---------------------------------</tt>
+<p><tt>=================================</tt>
 <br><tt>Dap&nbsp;&nbsp; 3. Sat Jul 28 20:04:08 2001</tt>
 <br>&nbsp;
 <p><tt>For: _type_ = EXPECTED</tt>
-<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _cell_ for
+<p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _cell_
+for
 jobsat</tt>
 <br><tt>======================================================</tt>
-<br><tt>|income&nbsp; |1verydis&nbsp; |2littledis|3modsat&nbsp;&nbsp; |4verysat&nbsp;
+<br><tt>|income&nbsp; |1verydis&nbsp; |2littledis|3modsat&nbsp;&nbsp;
+|4verysat&nbsp;
 |</tt>
 <br><tt>|========|==========|==========|==========|==========|</tt>
-<br><tt>|00-06&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 14.2|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-24.7|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 72.9|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br><tt>|00-06&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+14.2|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+24.7|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+72.9|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 94.2|</tt>
 <br><tt>|--------|----------+----------+----------+----------|</tt>
-<br><tt>|06-15&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 19.9|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-34.6|&nbsp;&nbsp;&nbsp;&nbsp; 102.3|&nbsp;&nbsp;&nbsp;&nbsp; 132.2|</tt>
+<br><tt>|06-15&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+19.9|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+34.6|&nbsp;&nbsp;&nbsp;&nbsp; 102.3|&nbsp;&nbsp;&nbsp;&nbsp;
+132.2|</tt>
 <br><tt>|--------|----------+----------+----------+----------|</tt>
-<br><tt>|15-25&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 16.2|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-28.2|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 83.2|&nbsp;&nbsp;&nbsp;&nbsp; 107.5|</tt>
+<br><tt>|15-25&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+16.2|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+28.2|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 83.2|&nbsp;&nbsp;&nbsp;&nbsp;
+107.5|</tt>
 <br><tt>|--------|----------+----------+----------+----------|</tt>
-<br><tt>|25-&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 11.8|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-20.5|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 60.5|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br><tt>|25-&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+11.8|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+20.5|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+60.5|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 78.2|</tt>
 <br><tt>------------------------------------------------------</tt>
 <br>&nbsp;
-<p><a NAME="Stratified 2x2 tables"></a><b>Stratified 2x2 tables</b>&nbsp;
-
-<a href="#Sample output">[Back to Sample output]</a>
+<p><a NAME="Stratified 2x2 tables"></a><b>Stratified 2x2 tables</b> <a
+href="#Sample output">[Back
+to Sample output]</a>
 <p>CDA: pp. 232 - 233
-<br><tt>---------------------------------</tt>
+<br><tt>=================================</tt>
 <br><tt>Dap&nbsp;&nbsp; 1. Sat Jul 28 20:02:49 2001</tt>
 <br>&nbsp;
 <p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -1598,83 +2210,115 @@ count for response</tt>
 <br><tt>|========|========|=====|=====|</tt>
 <br><tt>|0.125&nbsp;&nbsp; |1.5h&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;
 0|&nbsp;&nbsp;&nbsp; 5|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|-----+-----|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |none&nbsp;&nbsp;&nbsp;
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------|-----+-----|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|none&nbsp;&nbsp;&nbsp;
 |&nbsp;&nbsp;&nbsp; 0|&nbsp;&nbsp;&nbsp; 6|</tt>
 <br><tt>|--------+--------|-----+-----|</tt>
 <br><tt>|0.250&nbsp;&nbsp; |1.5h&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;
 0|&nbsp;&nbsp;&nbsp; 6|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|-----+-----|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |none&nbsp;&nbsp;&nbsp;
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------|-----+-----|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|none&nbsp;&nbsp;&nbsp;
 |&nbsp;&nbsp;&nbsp; 3|&nbsp;&nbsp;&nbsp; 3|</tt>
 <br><tt>|--------+--------|-----+-----|</tt>
 <br><tt>|0.500&nbsp;&nbsp; |1.5h&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;
 2|&nbsp;&nbsp;&nbsp; 4|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|-----+-----|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |none&nbsp;&nbsp;&nbsp;
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------|-----+-----|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|none&nbsp;&nbsp;&nbsp;
 |&nbsp;&nbsp;&nbsp; 6|&nbsp;&nbsp;&nbsp; 0|</tt>
 <br><tt>|--------+--------|-----+-----|</tt>
 <br><tt>|1.000&nbsp;&nbsp; |1.5h&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;
 6|&nbsp;&nbsp;&nbsp; 0|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|-----+-----|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |none&nbsp;&nbsp;&nbsp;
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------|-----+-----|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|none&nbsp;&nbsp;&nbsp;
 |&nbsp;&nbsp;&nbsp; 5|&nbsp;&nbsp;&nbsp; 1|</tt>
 <br><tt>|--------+--------|-----+-----|</tt>
 <br><tt>|4.000&nbsp;&nbsp; |1.5h&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;
 5|&nbsp;&nbsp;&nbsp; 0|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |--------|-----+-----|</tt>
-<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |none&nbsp;&nbsp;&nbsp;
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|--------|-----+-----|</tt>
+<br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|none&nbsp;&nbsp;&nbsp;
 |&nbsp;&nbsp;&nbsp; 2|&nbsp;&nbsp;&nbsp; 0|</tt>
 <br><tt>-------------------------------</tt>
-<p><tt>---------------------------------</tt>
+<p><tt>=================================</tt>
 <br><tt>Dap&nbsp;&nbsp; 2. Sat Jul 28 20:02:49 2001</tt>
 <br>&nbsp;
-<p><tt>Cochran-Mantel-Haenszel test for delay x response, stratified by
+<p><tt>Cochran-Mantel-Haenszel test for delay x response, stratified
+by
 penicillin</tt>
-<br><tt>M0-squared = 3.92857, Prob[M-squared > M0-squared] = 0.0475</tt>
-<p><a NAME="Loglinear models"></a><b>Loglinear models&nbsp;</b>&nbsp; <a href="#Sample output">[Back
+<br><tt>M0-squared = 3.92857, Prob[M-squared > M0-squared] =
+0.0475</tt>
+<p><a NAME="Loglinear models"></a><b>Loglinear models&nbsp;</b>&nbsp;
+<a href="#Sample output">[Back
 to Sample output]</a>
 <p>CDA: pp. 135 - 138, 171 - 174, 176 - 177
-<br><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 1. Sat Jul 28 20:01:33 2001</tt>
+<br><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 1. Tue Nov 19 18:31:41 2002</tt>
 <p><tt>(DV, P) vs (D, V, P)</tt>
-<br><tt>Parameters: mu D V P DV DP VP</tt>
 <p><tt>Maximum likelihood estimation</tt>
 <p><tt>Cell count: n</tt>
 <br><tt>Class and aux variables: def vic pen</tt>
 <p><tt>Statistic&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 df&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Prob</tt>
-<br><tt>G2[Model]&nbsp;&nbsp; =&nbsp;&nbsp; 8.13&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;
+<br><tt>G2[Model]&nbsp;&nbsp; =&nbsp;&nbsp; 8.13&nbsp;&nbsp;&nbsp;
+3&nbsp;&nbsp;&nbsp;
 0.0434</tt>
-<br><tt>G2[Reduced] = 137.93&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp; 0.0001</tt>
-<br><tt>G2[Diff]&nbsp;&nbsp;&nbsp; = 129.80&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp;
+<br><tt>G2[Reduced] = 137.93&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp;
 0.0001</tt>
-<br><tt>X2[Model]&nbsp;&nbsp; =&nbsp;&nbsp; 6.98&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;
+<br><tt>G2[Diff]&nbsp;&nbsp;&nbsp; = 129.80&nbsp;&nbsp;&nbsp;
+1&nbsp;&nbsp;&nbsp;
+0.0001</tt>
+<br><tt>X2[Model]&nbsp;&nbsp; =&nbsp;&nbsp; 6.98&nbsp;&nbsp;&nbsp;
+3&nbsp;&nbsp;&nbsp;
 0.0727</tt>
-<p><tt>Parameters</tt>
-<br><tt>&nbsp;&nbsp;&nbsp; Estimate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-ASE</tt>
-<br><tt>&nbsp;&nbsp;&nbsp;&nbsp; 2.83789&nbsp;&nbsp;&nbsp;&nbsp; 0.117031</tt>
-<br><tt>&nbsp;&nbsp;&nbsp; -0.39084&nbsp;&nbsp;&nbsp; 0.0946425</tt>
-<br><tt>&nbsp;&nbsp;&nbsp; 0.582115&nbsp;&nbsp;&nbsp; 0.0946425</tt>
-<br><tt>&nbsp;&nbsp;&nbsp; -1.04323&nbsp;&nbsp;&nbsp; 0.0883544</tt>
-<br><tt>&nbsp;&nbsp;&nbsp; 0.827962&nbsp;&nbsp;&nbsp; 0.0946425</tt>
-<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0</tt>
-<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 2. Sat Jul 28 20:01:34 2001</tt>
+<p><tt>&nbsp;&nbsp;&nbsp;
+Estimate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ASE&nbsp; Model&nbsp; Parameter</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp; 2.83789&nbsp;&nbsp;&nbsp;&nbsp;
+0.117031&nbsp;&nbsp;&nbsp;
+*&nbsp;&nbsp;&nbsp; mu</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; -0.39084&nbsp;&nbsp;&nbsp;
+0.0946424&nbsp;&nbsp;&nbsp;
+*&nbsp;&nbsp;&nbsp; D</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; 0.582115&nbsp;&nbsp;&nbsp;
+0.0946424&nbsp;&nbsp;&nbsp;
+*&nbsp;&nbsp;&nbsp; V</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; -1.04323&nbsp;&nbsp;&nbsp;
+0.0883545&nbsp;&nbsp;&nbsp;
+*&nbsp;&nbsp;&nbsp; P</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; 0.827962&nbsp;&nbsp;&nbsp;
+0.0946424&nbsp;&nbsp;&nbsp;
+?&nbsp;&nbsp;&nbsp; DV</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DP</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+VP</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 2. Tue Nov 19 18:31:41 2002</tt>
 <p><tt>(DV, P) vs (D, V, P)</tt>
-<br><tt>Parameters: mu D V P DV DP VP</tt>
 <p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 n for _type_ / pen</tt>
 <br><tt>===========================================================</tt>
 <br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|FIT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |OBS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|FIT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|OBS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 |</tt>
 <br><tt>|--------------+--------------|------+------+------+------|</tt>
 <br><tt>|def&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|vic&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |0&nbsp;&nbsp;&nbsp;&nbsp;
-|1&nbsp;&nbsp;&nbsp;&nbsp; |0&nbsp;&nbsp;&nbsp;&nbsp; |1&nbsp;&nbsp;&nbsp;&nbsp;
+|vic&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|0&nbsp;&nbsp;&nbsp;&nbsp;
+|1&nbsp;&nbsp;&nbsp;&nbsp; |0&nbsp;&nbsp;&nbsp;&nbsp;
+|1&nbsp;&nbsp;&nbsp;&nbsp;
 |</tt>
 <br><tt>|==============|==============|======|======|======|======|</tt>
 <br><tt>|0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -1695,49 +2339,65 @@ n for _type_ / pen</tt>
 |1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 | 11.37| 91.63|&nbsp; 6.00| 97.00|</tt>
 <br><tt>-----------------------------------------------------------</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 3. Sat Jul 28 20:01:34 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 3. Tue Nov 19 18:31:41 2002</tt>
 <p><tt>(DV, VP) vs (DV, P)</tt>
-<br><tt>Parameters: mu D V P DV DP VP</tt>
 <p><tt>Maximum likelihood estimation</tt>
 <p><tt>Cell count: n</tt>
 <br><tt>Class and aux variables: def vic pen</tt>
 <p><tt>Statistic&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 df&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Prob</tt>
-<br><tt>G2[Model]&nbsp;&nbsp; =&nbsp;&nbsp; 1.88&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp;
+<br><tt>G2[Model]&nbsp;&nbsp; =&nbsp;&nbsp; 1.88&nbsp;&nbsp;&nbsp;
+2&nbsp;&nbsp;&nbsp;
 0.3903</tt>
-<br><tt>G2[Reduced] =&nbsp;&nbsp; 8.13&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;
+<br><tt>G2[Reduced] =&nbsp;&nbsp; 8.13&nbsp;&nbsp;&nbsp;
+3&nbsp;&nbsp;&nbsp;
 0.0434</tt>
-<br><tt>G2[Diff]&nbsp;&nbsp;&nbsp; =&nbsp;&nbsp; 6.25&nbsp;&nbsp;&nbsp;
+<br><tt>G2[Diff]&nbsp;&nbsp;&nbsp; =&nbsp;&nbsp;
+6.25&nbsp;&nbsp;&nbsp;
 1&nbsp;&nbsp;&nbsp; 0.0125</tt>
-<br><tt>X2[Model]&nbsp;&nbsp; =&nbsp;&nbsp; 1.43&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp;
+<br><tt>X2[Model]&nbsp;&nbsp; =&nbsp;&nbsp; 1.43&nbsp;&nbsp;&nbsp;
+2&nbsp;&nbsp;&nbsp;
 0.4889</tt>
-<p><tt>Parameters</tt>
-<br><tt>&nbsp;&nbsp;&nbsp; Estimate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-ASE</tt>
+<p><tt>&nbsp;&nbsp;&nbsp;
+Estimate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ASE&nbsp; Model&nbsp; Parameter</tt>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp; 2.72369&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-0.13779</tt>
-<br><tt>&nbsp;&nbsp;&nbsp; -0.39084&nbsp;&nbsp;&nbsp; 0.0946426</tt>
-<br><tt>&nbsp;&nbsp;&nbsp;&nbsp; 0.79861&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-0.13779</tt>
-<br><tt>&nbsp;&nbsp;&nbsp; -1.17135&nbsp;&nbsp;&nbsp;&nbsp; 0.115885</tt>
-<br><tt>&nbsp;&nbsp;&nbsp; 0.827862&nbsp;&nbsp;&nbsp; 0.0946426</tt>
-<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0</tt>
-<br><tt>&nbsp;&nbsp;&nbsp; 0.264535&nbsp;&nbsp;&nbsp;&nbsp; 0.115885</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 4. Sat Jul 28 20:01:34 2001</tt>
+0.13779&nbsp;&nbsp;&nbsp; *&nbsp;&nbsp;&nbsp; mu</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; -0.39084&nbsp;&nbsp;&nbsp;
+0.0946424&nbsp;&nbsp;&nbsp;
+*&nbsp;&nbsp;&nbsp; D</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; 0.798611&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0.13779&nbsp;&nbsp;&nbsp;
+*&nbsp;&nbsp;&nbsp; V</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; -1.17135&nbsp;&nbsp;&nbsp;&nbsp;
+0.115885&nbsp;&nbsp;&nbsp;
+*&nbsp;&nbsp;&nbsp; P</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; 0.827863&nbsp;&nbsp;&nbsp;
+0.0946424&nbsp;&nbsp;&nbsp;
+*&nbsp;&nbsp;&nbsp; DV</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DP</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; 0.264535&nbsp;&nbsp;&nbsp;&nbsp;
+0.115885&nbsp;&nbsp;&nbsp;
+?&nbsp;&nbsp;&nbsp; VP</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 4. Tue Nov 19 18:31:41 2002</tt>
 <p><tt>(DV, VP) vs (DV, P)</tt>
-<br><tt>Parameters: mu D V P DV DP VP</tt>
 <p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 n for _type_ / pen</tt>
 <br><tt>===========================================================</tt>
 <br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|FIT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |OBS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|FIT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|OBS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 |</tt>
 <br><tt>|--------------+--------------|------+------+------+------|</tt>
 <br><tt>|def&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|vic&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |0&nbsp;&nbsp;&nbsp;&nbsp;
-|1&nbsp;&nbsp;&nbsp;&nbsp; |0&nbsp;&nbsp;&nbsp;&nbsp; |1&nbsp;&nbsp;&nbsp;&nbsp;
+|vic&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|0&nbsp;&nbsp;&nbsp;&nbsp;
+|1&nbsp;&nbsp;&nbsp;&nbsp; |0&nbsp;&nbsp;&nbsp;&nbsp;
+|1&nbsp;&nbsp;&nbsp;&nbsp;
 |</tt>
 <br><tt>|==============|==============|======|======|======|======|</tt>
 <br><tt>|0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -1758,47 +2418,66 @@ n for _type_ / pen</tt>
 |1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 |&nbsp; 5.52| 97.48|&nbsp; 6.00| 97.00|</tt>
 <br><tt>-----------------------------------------------------------</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 5. Sat Jul 28 20:01:34 2001</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 5. Tue Nov 19 18:31:41 2002</tt>
 <p><tt>(DV, DP, VP) vs (DV, VP)</tt>
-<br><tt>Parameters: mu D V P DV DP VP</tt>
 <p><tt>Maximum likelihood estimation</tt>
 <p><tt>Cell count: n</tt>
 <br><tt>Class and aux variables: def vic pen</tt>
 <p><tt>Statistic&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 df&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Prob</tt>
-<br><tt>G2[Model]&nbsp;&nbsp; =&nbsp;&nbsp; 0.70&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp;
+<br><tt>G2[Model]&nbsp;&nbsp; =&nbsp;&nbsp; 0.70&nbsp;&nbsp;&nbsp;
+1&nbsp;&nbsp;&nbsp;
 0.4026</tt>
-<br><tt>G2[Reduced] =&nbsp;&nbsp; 1.88&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp;
+<br><tt>G2[Reduced] =&nbsp;&nbsp; 1.88&nbsp;&nbsp;&nbsp;
+2&nbsp;&nbsp;&nbsp;
 0.3903</tt>
-<br><tt>G2[Diff]&nbsp;&nbsp;&nbsp; =&nbsp;&nbsp; 1.18&nbsp;&nbsp;&nbsp;
+<br><tt>G2[Diff]&nbsp;&nbsp;&nbsp; =&nbsp;&nbsp;
+1.18&nbsp;&nbsp;&nbsp;
 1&nbsp;&nbsp;&nbsp; 0.2772</tt>
-<br><tt>X2[Model]&nbsp;&nbsp; =&nbsp;&nbsp; 0.38&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp;
-0.5401</tt>
-<p><tt>Parameters</tt>
-<br><tt>&nbsp;&nbsp;&nbsp; Estimate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-ASE</tt>
-<br><tt>&nbsp;&nbsp;&nbsp;&nbsp; 2.69211&nbsp;&nbsp;&nbsp;&nbsp; 0.142941</tt>
-<br><tt>&nbsp;&nbsp; -0.479402&nbsp;&nbsp;&nbsp;&nbsp; 0.124301</tt>
-<br><tt>&nbsp;&nbsp;&nbsp; 0.854001&nbsp;&nbsp;&nbsp;&nbsp; 0.146841</tt>
-<br><tt>&nbsp;&nbsp;&nbsp; -1.20005&nbsp;&nbsp;&nbsp;&nbsp; 0.119974</tt>
-<br><tt>&nbsp;&nbsp;&nbsp; 0.839499&nbsp;&nbsp;&nbsp; 0.0954928</tt>
-<br><tt>&nbsp;&nbsp; -0.110105&nbsp;&nbsp;&nbsp;&nbsp; 0.100222</tt>
-<br><tt>&nbsp;&nbsp;&nbsp; 0.331103&nbsp;&nbsp;&nbsp;&nbsp; 0.129837</tt>
-<p><tt>---------------------------------</tt>
-<br><tt>Dap&nbsp;&nbsp; 6. Sat Jul 28 20:01:35 2001</tt>
+<br><tt>X2[Model]&nbsp;&nbsp; =&nbsp;&nbsp; 0.38&nbsp;&nbsp;&nbsp;
+1&nbsp;&nbsp;&nbsp;
+0.5400</tt>
+<p><tt>&nbsp;&nbsp;&nbsp;
+Estimate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ASE&nbsp; Model&nbsp; Parameter</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp; 2.69211&nbsp;&nbsp;&nbsp;&nbsp;
+0.142941&nbsp;&nbsp;&nbsp;
+*&nbsp;&nbsp;&nbsp; mu</tt>
+<br><tt>&nbsp;&nbsp; -0.479403&nbsp;&nbsp;&nbsp;&nbsp;
+0.124301&nbsp;&nbsp;&nbsp;
+*&nbsp;&nbsp;&nbsp; D</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; 0.854002&nbsp;&nbsp;&nbsp;&nbsp;
+0.146841&nbsp;&nbsp;&nbsp;
+*&nbsp;&nbsp;&nbsp; V</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; -1.20006&nbsp;&nbsp;&nbsp;&nbsp;
+0.119974&nbsp;&nbsp;&nbsp;
+*&nbsp;&nbsp;&nbsp; P</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; 0.839499&nbsp;&nbsp;&nbsp;
+0.0954928&nbsp;&nbsp;&nbsp;
+*&nbsp;&nbsp;&nbsp; DV</tt>
+<br><tt>&nbsp;&nbsp; -0.110106&nbsp;&nbsp;&nbsp;&nbsp;
+0.100222&nbsp;&nbsp;&nbsp;
+?&nbsp;&nbsp;&nbsp; DP</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; 0.331104&nbsp;&nbsp;&nbsp;&nbsp;
+0.129836&nbsp;&nbsp;&nbsp;
+*&nbsp;&nbsp;&nbsp; VP</tt>
+<p><tt>=================================</tt>
+<br><tt>Dap&nbsp;&nbsp; 6. Tue Nov 19 18:31:41 2002</tt>
 <p><tt>(DV, DP, VP) vs (DV, VP)</tt>
-<br><tt>Parameters: mu D V P DV DP VP</tt>
 <p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 n for _type_ / pen</tt>
 <br><tt>===========================================================</tt>
 <br><tt>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|FIT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |OBS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|FIT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|OBS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 |</tt>
 <br><tt>|--------------+--------------|------+------+------+------|</tt>
 <br><tt>|def&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|vic&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |0&nbsp;&nbsp;&nbsp;&nbsp;
-|1&nbsp;&nbsp;&nbsp;&nbsp; |0&nbsp;&nbsp;&nbsp;&nbsp; |1&nbsp;&nbsp;&nbsp;&nbsp;
+|vic&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|0&nbsp;&nbsp;&nbsp;&nbsp;
+|1&nbsp;&nbsp;&nbsp;&nbsp; |0&nbsp;&nbsp;&nbsp;&nbsp;
+|1&nbsp;&nbsp;&nbsp;&nbsp;
 |</tt>
 <br><tt>|==============|==============|======|======|======|======|</tt>
 <br><tt>|0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -1819,12 +2498,11 @@ n for _type_ / pen</tt>
 |1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 |&nbsp; 5.67| 97.33|&nbsp; 6.00| 97.00|</tt>
 <br><tt>-----------------------------------------------------------</tt>
-<br>&nbsp;
-<p><a NAME="Logistic regression"></a><b>Logistic regression&nbsp;</b> 
+<p><a NAME="Logistic regression"></a><b>Logistic regression&nbsp;</b>
 <a href="#Sample output">[Back
 to Sample output]</a>
 <p>CDA: pp. 87 - 89
-<br><tt>---------------------------------</tt>
+<br><tt>=================================</tt>
 <br><tt>Dap&nbsp;&nbsp; 1. Sat Jul 28 20:05:03 2001</tt>
 <br>&nbsp;
 <p><tt>Reduced | full model regressors: _intercept_ | labind</tt>
@@ -1833,31 +2511,22 @@ to Sample output]</a>
 <br><tt>Events / Trials: nremiss / ncases</tt>
 <br><tt>-2 (Lred - Lfull) = 8.2988 = ChiSq0[1]</tt>
 <br><tt>Prob[ChiSq > ChiSq0] = 0.00397</tt>
-<p><tt>&nbsp; Parameter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-Estimate&nbsp;&nbsp;&nbsp; Std Error&nbsp;&nbsp; Wald ChiSq&nbsp; Prob[ChiSq>Wald
+<p><tt>&nbsp;
+Parameter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Estimate&nbsp;&nbsp;&nbsp; Std Error&nbsp;&nbsp; Wald ChiSq&nbsp;
+Prob[ChiSq>Wald
 ChiSq]</tt>
-<br><tt>&nbsp; _intercept_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
--3.77714&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.37863&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br><tt>&nbsp;
+_intercept_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-3.77714&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1.37863&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 7.5064&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.00615</tt>
-<br><tt>&nbsp; labind&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-0.144863&nbsp;&nbsp;&nbsp; 0.0593411&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5.95942&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br><tt>&nbsp;
+labind&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0.144863&nbsp;&nbsp;&nbsp; 0.0593411&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+5.95942&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 0.01464</tt>
 <br>&nbsp;
-<p>
-<hr>
-<p>Return to <a href="/home.html">GNU's home page</a>.
-<p>Please send FSF &amp; GNU inquiries &amp; questions to <i><a href="mailto:gnu@gnu.org">gnu@gnu.org</a></i>.
-There are also <a href="/home.html#ContactInfo">other ways to contact</a>
-the FSF.
-<p>Please send comments on these web pages to <i><a href="mailto:webmasters@gnu.org">webmasters@gnu.org</a></i>,
-send other questions to
-<i><a href="mailto:gnu@gnu.org">gnu@gnu.org</a></i>.
-<p>Copyright (C) 1999 Free Software Foundation, Inc., 59 Temple Place -
-Suite 330, Boston, MA 02111, USA
-<p>Verbatim copying and distribution of this entire article is permitted
-in any medium, provided this notice is preserved.
-<p>Last modified:<!-- timestamp start -->$Date: 2002/08/22 21:27:12 $ $Author:
-brett $<!-- timestamp end -->
-<hr>
+<br>&nbsp;
 </body>
 </html>
