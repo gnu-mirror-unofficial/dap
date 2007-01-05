@@ -24,7 +24,7 @@ The Dap Project for Statistics and Graphics</h3>
 &nbsp;<a href="#Introduction to Dap">Introduction to Dap</a></li>
 
 <li>
-<a href="#downloading" NAME="TOCdownloading">Downloading Dap</a></li>
+&nbsp;<a href="#downloading" NAME="TOCdownloading">Downloading Dap</a></li>
 
 <li>
 &nbsp;<a href="#Sample output">Sample output</a></li>
@@ -36,38 +36,32 @@ The Dap Project for Statistics and Graphics</h3>
 href="#TOC">[Back
 to Table of Contents]</a></h4>
 Dap is a small statistics and graphics package based on C.
-Version 3.0
-of Dap can read SBS programs! The user wishing to perform basic statistical
+Version 3.0 and later
+of Dap can read SBS programs
+(based on the utterly famous, industry standard statistics system
+with similar initials - you know the one I mean)!
+The user wishing to perform basic statistical
 analyses is now freed from learning and using C syntax for straightforward
 tasks, while retaining access to the C-style graphics and statistics features
 provided by the original implementation.
-Dap
-provides
-core methods of data management, analysis, and graphics that are
-commonly
-used in statistical consulting practice (univariate statistics,
-correlations
-and regression, ANOVA, categorical data analysis, logistic regression,
+Dap provides core methods of data management, analysis, and graphics that are
+commonly used in statistical consulting practice (univariate statistics,
+correlations and regression, ANOVA, categorical data analysis, logistic regression,
 and nonparametric analyses).
 
-<p>Anyone familiar with the basic
-syntax
+<p>Anyone familiar with the basic syntax
 of C programs can learn to use the C-style features of Dap quickly and easily from the manual
-and
-the examples contained in it; advanced features of C are not
-necessary,
-although they are available.&nbsp; (The manual contains a brief
-introduction
-to the C syntax needed for Dap.)&nbsp; Because Dap processes files one
-line at a time, rather than reading entire files into memory, it can
-be,
-and has been, used on data sets that have very many lines and/or very
-many
-variables.
+and the examples contained in it; advanced features of C are not
+necessary, although they are available. (The manual contains a brief
+introduction to the C syntax needed for Dap.)
+Because Dap processes files one line at a time, rather than reading entire files into memory, it can
+be, and has been, used on data sets that have very many lines and/or very
+many variables.
 
 <p>I wrote Dap to use in my statistical consulting practice because the
-utterly famous, industry standard statistics system (you know the one I
-mean) is not available on GNU/Linux and costs a bundle every year under
+aforementioned
+utterly famous, industry standard statistics system
+is (or at least was) not available on GNU/Linux and costs a bundle every year under
 a lease arrangement. And now you can run programs written for that system
 directly on Dap! I was generally happy with that system, except for
 the graphics, which are all but impossible to use,&nbsp; but there were
@@ -102,7 +96,6 @@ one for comments, which
 can be accessed through
 <tt><a href="http://mail.gnu.org/archive/html/bug-dap">http://mail.gnu.org/archive/html/bug-dap</a></tt> and
 <tt><a href="http://mail.gnu.org/archive/html/dap-users">http://mail.gnu.org/archive/html/dap-users</a></tt>.
-These lists only accept PLAIN TEXT. Postings to bug-dap must contain the word "bug".
 
 <p>Dap is a GNU program and is free software distributed under a
 GNU-style
@@ -119,9 +112,10 @@ in subdirectories `bin', `include', `lib', and `info', respectively, of
 `/usr/local', then simply issue the following commands:
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ./configure
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; make install
-<p>Otherwise, after the `./configure' command, edit the `Makefile' files
-in DAP_HOME, DAP_HOME/src, and DAP_HOME/doc to select a different place
-to install before you type the `make install' command. Note: when DAP_HOME/src/dap.c
+<p>Otherwise, if you want to install dap in subdirectories of another
+directory, say "home/dap", after the `./configure' command, instead type type:<br />
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; make prefix=home/dap install</p>
+<p>Note: when DAP_HOME/src/dap.c
 compiles, you will get a warning:
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; implicit declaration of function
 `strcat'
@@ -187,13 +181,12 @@ floating
 point numbers conforming to the IEEE floating point standard.&nbsp; If
 that is not the case, then you may have to modify `machdep.c'; good
 luck.
-<p>BUG REPORTS AND COMMENTS
-<p>Send bug reports to &lt;bug-dap@gnu.org>.
-Postings to bug-dap must be in PLAIN TEXT and contain the word "bug".
+<p>BUG REPORTS AND COMMENTS</p>
+<p>Send bug reports to &lt;bug-dap@gnu.org>.</p>
 <p>If you use dap, please let me know about your experience using it,
 and
 suggestions, by mailing
-<br>to &lt;dap-users@gnu.org>. Thanks.
+<br>to &lt;dap-users@gnu.org>. Thanks.</p>
 <p><a NAME="Sample output"></a><b>Sample output&nbsp;</b>&nbsp; <a
 href="#TOC">[Back
 to Table of Contents]</a>
@@ -219,7 +212,7 @@ Analysis.&nbsp;
 John Wiley &amp; Sons: New York.&nbsp; 558pp.
 <blockquote>
 <li>
-<a href="#Unbalanced ANOVA">Unbalanced ANOVA</a></li>
+&nbsp;<a href="#Unbalanced ANOVA">Unbalanced ANOVA</a></li>
 
 <li>
 &nbsp;<a href="#Crossed, nested ANOVA">Crossed, nested ANOVA</a></li>
@@ -2157,7 +2150,7 @@ permitted in any medium, provided this notice is preserved.
 <p>
 Updated:
 <!-- timestamp start -->
-$Date: 2006/11/21 07:11:34 $ $Author: ramprasadb $
+$Date: 2007/01/05 16:52:46 $ $Author: sbassein $
 <!-- timestamp end -->
 
 <p>
